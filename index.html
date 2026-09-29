@@ -1,2667 +1,950 @@
 <!DOCTYPE html>
-
-
 <html lang="az">
-
-
 <head>
-
-
 <meta charset="UTF-8">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dondurma Ustası</title>
-
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
-
-
 <style>
-
-
-:root{
-
-
---bg-top:#cfeaf7;
-
-
---bg-bottom:#fde3ef;
-
-
---cart-cream:#fff8ec;
-
-
---cart-shadow:#e7cfa8;
-
-
---ink:#3a2e39;
-
-
---ink-soft:#6b5c68;
-
-
---pink:#ff5c8a;
-
-
---pink-dark:#e8447a;
-
-
---mint:#3fbf8f;
-
-
---amber:#ff9f45;
-
-
---card-bg:#ffffff;
-
-
---line:#e7dfe4;
-
-
---cone:#d9a066;
-
-
---cone-dark:#b97f45;
-
-
---awning-a:#ff5c8a;
-
-
---awning-b:#ffffff;
-
-
-box-sizing:border-box;
-
-
-padding-top:env(safe-area-inset-top,0px);
-
-
-padding-bottom:env(safe-area-inset-bottom,0px);
-
-
-}
-
-
-:root:not([data-theme="light"]){
-
-
-@media (prefers-color-scheme: dark){
-
-
---bg-top:#232042; --bg-bottom:#3a2140; --cart-cream:#3a3350; --cart-shadow:#25213a;
-
-
---ink:#f5eef2; --ink-soft:#c9bcd0; --card-bg:#2c2740; --line:#463d5c;
-
-
-}
-
-
-}
-
-
-:root[data-theme="dark"]{
-
-
---bg-top:#232042; --bg-bottom:#3a2140; --cart-cream:#3a3350; --cart-shadow:#25213a;
-
-
---ink:#f5eef2; --ink-soft:#c9bcd0; --card-bg:#2c2740; --line:#463d5c;
-
-
-}
-
-
-body.winter{ --bg-top:#dceaf6; --bg-bottom:#eef0fb; --cart-cream:#eef4f8; --cart-shadow:#c9d6e3; }
-
-
-*{box-sizing:border-box; -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;}
-
-
-html,body{
-
-
-margin:0; width:100%; min-height:100%;
-
-
-font-family:'Nunito', sans-serif;
-
-
-color:var(--ink);
-
-
-background:linear-gradient(180deg,var(--bg-top) 0%, var(--bg-bottom) 100%);
-
-
-overflow-x:hidden;
-
-
--webkit-tap-highlight-color:transparent;
-
-
-touch-action:manipulation;
-
-
-}
-
-
-h1,h2,h3,.display{font-family:'Fredoka',sans-serif;}
-
-
-button{font-family:inherit;}
-
-
-​.screen{
-
-
-width:100%; min-height:100vh; min-height:100dvh;
-
-
-display:flex; flex-direction:column; align-items:center; justify-content:center;
-
-
-padding:16px 14px calc(24px + env(safe-area-inset-bottom,0px));
-
-
-}
-
-
-.hidden{display:none !important;}
-
-
-​/* ---------- LANGUAGE SWITCHER ---------- */
-
-
-.lang-row{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; width:100%; margin-bottom:4px;}
-
-
-.lang-btn{
-
-
-min-width:44px; min-height:40px; border-radius:12px; border:2px solid var(--line);
-
-
-background:var(--card-bg); font-size:17px; cursor:pointer;
-
-
-display:flex; align-items:center; justify-content:center;
-
-
-transition:border-color .15s, transform .08s;
-
-
-}
-
-
-.lang-btn:active{transform:scale(.92);}
-
-
-.lang-btn.active{border-color:var(--pink); box-shadow:0 0 0 2px rgba(255,92,138,.25);}
-
-
-​/* ---------- INTRO ---------- */
-
-
-#intro{justify-content:center; text-align:center; gap:12px; max-width:420px; margin:0 auto;}
-
-
-.cone-hero{font-size:clamp(50px,14vw,80px); line-height:1; filter:drop-shadow(0 10px 14px rgba(0,0,0,.15));}
-
-
-#intro h1{font-size:clamp(24px,6.5vw,34px); margin:0; letter-spacing:.5px;}
-
-
-#intro p{color:var(--ink-soft); font-size:13.5px; line-height:1.45; margin:0;}
-
-
-.rules{
-
-
-background:var(--card-bg); border:2px solid var(--line); border-radius:18px;
-
-
-padding:12px 14px; text-align:left; font-size:12.5px; line-height:1.55; color:var(--ink-soft); width:100%;
-
-
-}
-
-
-.rules b{color:var(--ink);}
-
-
-.primary-btn{
-
-
-background:var(--pink); color:#fff; border:none; border-radius:999px;
-
-
-padding:16px 32px; font-size:18px; font-weight:600; font-family:'Fredoka',sans-serif;
-
-
-cursor:pointer; box-shadow:0 6px 0 var(--pink-dark); transition:transform .08s ease;
-
-
-min-height:52px; display:inline-flex; align-items:center; justify-content:center; width:100%; max-width:280px;
-
-
-}
-
-
-.primary-btn:active{transform:translateY(4px); box-shadow:0 2px 0 var(--pink-dark);}
-
-
-.primary-btn:focus-visible, button:focus-visible{outline:3px solid var(--mint); outline-offset:2px;}
-
-
-.secondary-btn{
-
-
-background:none; border:none; color:var(--ink-soft); text-decoration:underline;
-
-
-font-size:13px; cursor:pointer; padding:10px; min-height:44px;
-
-
-}
-
-
-.best-note{font-size:13px; color:var(--ink-soft);}
-
-
-.lock-progress{font-size:12px; color:var(--ink-soft); background:var(--card-bg); border:2px solid var(--line); border-radius:14px; padding:10px 12px; width:100%; text-align:left;}
-
-
-.lock-progress b{color:var(--ink);}
-
-
-​/* ---------- GAME HEADER & UI ---------- */
-
-
-#game{width:100%; max-width:480px; margin:0 auto; gap:8px; padding-top:8px; justify-content:flex-start;}
-
-
-.topbar{width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px;}
-
-
-.stat{
-
-
-background:var(--card-bg); border:2px solid var(--line); border-radius:14px;
-
-
-padding:5px 10px; text-align:center; min-width:54px;
-
-
-}
-
-
-.stat .num{font-family:'Fredoka'; font-size:17px; font-weight:600; display:block;}
-
-
-.stat .lbl{font-size:9.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.4px;}
-
-
-.timerwrap{flex:1; height:12px; background:var(--card-bg); border:2px solid var(--line); border-radius:999px; overflow:hidden; margin:0 4px;}
-
-
-#timerbar{height:100%; width:100%; background:var(--mint); border-radius:999px; transition:width 1s linear, background .3s;}
-
-
-.mute-btn{
-
-
-min-width:40px; min-height:40px; border-radius:12px; border:2px solid var(--line);
-
-
-background:var(--card-bg); font-size:16px; cursor:pointer; flex-shrink:0;
-
-
-display:flex; align-items:center; justify-content:center;
-
-
-}
-
-
-.subbar{width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:12px; color:var(--ink-soft); padding:0 2px;}
-
-
-.combo-pill{
-
-
-background:var(--amber); color:#fff; border-radius:999px; padding:2px 8px;
-
-
-font-family:'Fredoka'; font-weight:600; font-size:11px; opacity:0; transition:opacity .2s, transform .2s; transform:scale(.8);
-
-
-}
-
-
-.combo-pill.show{opacity:1; transform:scale(1);}
-
-
-​/* ---------- SERVICE WINDOW & TICKET ---------- */
-
-
-.window-unit{width:100%; display:flex; flex-direction:column; align-items:center;}
-
-
-.truck-window{width:100%; position:relative;}
-
-
-.awning{
-
-
-height:16px; border-radius:12px 12px 0 0;
-
-
-background:repeating-linear-gradient(90deg, var(--awning-a) 0 14px, var(--awning-b) 14px 28px);
-
-
-box-shadow:0 2px 0 rgba(0,0,0,.08);
-
-
-}
-
-
-.glass{
-
-
-background:linear-gradient(160deg, rgba(207,234,247,.85), rgba(255,255,255,.35));
-
-
-border:3px solid var(--card-bg); border-top:none; border-radius:0 0 14px 14px;
-
-
-padding:8px 10px 10px; display:flex; justify-content:center; align-items:flex-end; gap:8px; min-height:50px;
-
-
-}
-
-
-.customer-face{font-size:36px; flex-shrink:0; transition:transform .15s;}
-
-
-.queue-face{font-size:20px; opacity:.35; flex-shrink:0; padding-bottom:4px;}
-
-
-.patience-wrap{width:calc(100% - 20px); max-width:260px; height:6px; background:var(--card-bg); border-radius:999px; overflow:hidden; margin-top:3px;}
-
-
-#patienceBar{height:100%; width:100%; background:var(--mint); border-radius:999px; transition:width 1s linear, background .3s;}
-
-
-​.order-ticket{
-
-
-width:calc(100% - 24px); max-width:260px; margin:4px auto 2px;
-
-
-background:var(--card-bg); border:2px dashed var(--line); border-radius:0 0 10px 10px;
-
-
-padding:6px 12px 8px; display:flex; align-items:center; gap:10px; position:relative;
-
-
-box-shadow:0 4px 10px rgba(0,0,0,.08);
-
-
-}
-
-
-.order-ticket::before{
-
-
-content:'📎'; position:absolute; top:-12px; left:50%; transform:translateX(-50%) rotate(8deg); font-size:16px;
-
-
-}
-
-
-.order-info{flex:1; min-width:0;}
-
-
-.order-info .who{font-size:11px; color:var(--ink-soft); margin-bottom:2px;}
-
-
-.order-mini-cone{display:flex; align-items:center; gap:4px; flex-wrap:wrap;}
-
-
-.mini-scoop{width:16px; height:16px; border-radius:50%; box-shadow:inset -2px -2px 3px rgba(0,0,0,.15), inset 2px 2px 3px rgba(255,255,255,.5);}
-
-
-.mini-top{font-size:13px;}
-
-
-.mini-container{font-size:13px;}
-
-
-.price-tag{font-family:'Fredoka'; font-weight:600; color:var(--pink); font-size:15px; flex-shrink:0;}
-
-
-​/* ---------- BUILD AREA ---------- */
-
-
-.build-area{
-
-
-width:100%; background:var(--cart-cream); border-radius:20px; box-shadow:0 8px 0 var(--cart-shadow);
-
-
-padding:12px 10px 10px; display:flex; flex-direction:column; align-items:center;
-
-
-min-height:140px; max-height:165px; justify-content:flex-end; position:relative; overflow:hidden;
-
-
-}
-
-
-.cone-stack{display:flex; flex-direction:column-reverse; align-items:center;}
-
-
-.scoop{
-
-
-width:62px; height:44px; border-radius:50% 50% 46% 46%; margin-top:-16px;
-
-
-box-shadow:inset -5px -5px 8px rgba(0,0,0,.15), inset 5px 5px 8px rgba(255,255,255,.45), 0 2px 3px rgba(0,0,0,.1);
-
-
-}
-
-
-.scoop:first-child{margin-top:0;}
-
-
-.cone-shape{
-
-
-width:0; height:0; border-left:28px solid transparent; border-right:28px solid transparent;
-
-
-border-top:60px solid var(--cone); margin-top:-5px; position:relative;
-
-
-filter:drop-shadow(0 3px 2px rgba(0,0,0,.15));
-
-
-}
-
-
-.cone-shape::after{
-
-
-content:''; position:absolute; top:-60px; left:-28px; width:56px; height:60px;
-
-
-background:repeating-linear-gradient(45deg, transparent 0 5px, var(--cone-dark) 5px 7px),
-
-
-repeating-linear-gradient(-45deg, transparent 0 5px, var(--cone-dark) 5px 7px);
-
-
-clip-path: polygon(50% 100%, 0 0, 100% 0); opacity:.5;
-
-
-}
-
-
-.cup-shape{
-
-
-width:68px; height:42px;
-
-
-background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(180,220,230,.55));
-
-
-border:3px solid rgba(255,255,255,.85); border-top:none;
-
-
-clip-path: polygon(8% 0, 92% 0, 82% 100%, 18% 100%);
-
-
-margin-top:-5px; box-shadow:0 3px 2px rgba(0,0,0,.1);
-
-
-}
-
-
-.empty-hint{color:var(--ink-soft); font-size:12px; margin-bottom:6px;}
-
-
-​/* ---------- CONTROLS & TOUCH TARGETS ---------- */
-
-
-.panel{width:100%; display:flex; flex-direction:column; gap:6px;}
-
-
-.panel-row{display:flex; gap:6px; flex-wrap:wrap; justify-content:center;}
-
-
-.flavor-btn, .topping-btn, .container-btn{
-
-
-border:2px solid var(--line); background:var(--card-bg); border-radius:12px; padding:6px 8px;
-
-
-display:flex; flex-direction:column; align-items:center; gap:3px; font-size:10px; color:var(--ink-soft);
-
-
-cursor:pointer; min-width:48px; min-height:48px; transition:transform .06s ease, border-color .15s;
-
-
-touch-action:manipulation;
-
-
-}
-
-
-.flavor-btn:active, .topping-btn:active, .container-btn:active{transform:scale(.92);}
-
-
-.flavor-swatch{width:20px; height:20px; border-radius:50%; box-shadow:inset -2px -2px 4px rgba(0,0,0,.15), inset 2px 2px 4px rgba(255,255,255,.5);}
-
-
-.topping-btn span.ic, .container-btn span.ic{font-size:18px;}
-
-
-.flavor-btn.locked{opacity:.45; cursor:default; filter:grayscale(.6);}
-
-
-.flavor-btn.locked .lock-badge{font-size:8.5px; color:var(--ink-soft);}
-
-
-.container-btn.selected{border-color:var(--pink); box-shadow:0 0 0 2px rgba(255,92,138,.25);}
-
-
-​.action-row{display:flex; gap:8px; margin-top:2px;}
-
-
-.ghost-btn{
-
-
-flex:1; background:var(--card-bg); border:2px solid var(--line); color:var(--ink-soft);
-
-
-border-radius:999px; padding:10px; font-weight:700; font-size:13.5px; cursor:pointer;
-
-
-min-height:46px; display:flex; align-items:center; justify-content:center;
-
-
-}
-
-
-.serve-btn{
-
-
-flex:2; background:var(--mint); color:#fff; border:none; border-radius:999px; padding:10px;
-
-
-font-family:'Fredoka'; font-weight:600; font-size:15px; cursor:pointer; box-shadow:0 5px 0 #2e9c73;
-
-
-min-height:46px; display:flex; align-items:center; justify-content:center;
-
-
-}
-
-
-.serve-btn:active{transform:translateY(3px); box-shadow:0 2px 0 #2e9c73;}
-
-
-.serve-btn:disabled{opacity:.5; box-shadow:none; cursor:default;}
-
-
-​/* ---------- FEEDBACK & SUMMARY ---------- */
-
-
-.feedback{
-
-
-position:fixed; top:12%; left:50%; transform:translate(-50%,-10px);
-
-
-background:var(--card-bg); border-radius:14px; padding:10px 18px; font-family:'Fredoka'; font-weight:600;
-
-
-font-size:14.5px; box-shadow:0 8px 20px rgba(0,0,0,.18); opacity:0; pointer-events:none;
-
-
-transition:opacity .25s, transform .25s; z-index:20; max-width:86vw; text-align:center;
-
-
-}
-
-
-.feedback.show{opacity:1; transform:translate(-50%,0);}
-
-
-.feedback.good{color:var(--mint);}
-
-
-.feedback.bad{color:var(--pink-dark);}
-
-
-​.shake{animation:shake .35s;}
-
-
-@keyframes shake{
-
-
-10%,90%{transform:translateX(-3px);} 20%,80%{transform:translateX(5px);}
-
-
-30%,50%,70%{transform:translateX(-8px);} 40%,60%{transform:translateX(8px);}
-
-
-}
-
-
-.confetti-piece{position:absolute; font-size:15px; pointer-events:none; animation:confetti-fall 900ms ease-out forwards; z-index:5;}
-
-
-@keyframes confetti-fall{
-
-
-0%{transform:translateY(0) rotate(0deg); opacity:1;}
-
-
-100%{transform:translateY(90px) rotate(220deg); opacity:0;}
-
-
-}
-
-
-​#daySummary{justify-content:center; text-align:center; gap:12px; max-width:400px; margin:0 auto;}
-
-
-#daySummary .big-emoji{font-size:48px;}
-
-
-#daySummary h2{font-size:22px; margin:0;}
-
-
-#daySummary p{color:var(--ink-soft); font-size:13.5px; margin:0; line-height:1.45;}
-
-
-.end-stats{display:flex; gap:10px; width:100%;}
-
-
-.end-stat{flex:1; background:var(--card-bg); border:2px solid var(--line); border-radius:14px; padding:10px 6px;}
-
-
-.end-stat .num{font-family:'Fredoka'; font-size:20px; font-weight:600; display:block;}
-
-
-.end-stat .lbl{font-size:10.5px; color:var(--ink-soft);}
-
-
-.best-note{font-size:12.5px; color:var(--ink-soft);}
-
-
-​@media (max-width:340px){
-
-
-.flavor-btn, .topping-btn, .container-btn{min-width:44px; min-height:44px; padding:4px 5px;}
-
-
-.scoop{width:54px; height:40px;}
-
-
-}
-
-
+  :root{
+    --bg-top:#cfeaf7;
+    --bg-bottom:#fde3ef;
+    --cart-cream:#fff8ec;
+    --cart-shadow:#e7cfa8;
+    --ink:#3a2e39;
+    --ink-soft:#6b5c68;
+    --pink:#ff5c8a;
+    --pink-dark:#e8447a;
+    --mint:#3fbf8f;
+    --amber:#ff9f45;
+    --card-bg:#ffffff;
+    --line:#e7dfe4;
+    --cone:#d9a066;
+    --cone-dark:#b97f45;
+    --awning-a:#ff5c8a;
+    --awning-b:#ffffff;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --bg-top:#232042; --bg-bottom:#3a2140; --cart-cream:#3a3350; --cart-shadow:#25213a;
+      --ink:#f5eef2; --ink-soft:#c9bcd0; --card-bg:#2c2740; --line:#463d5c;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg-top:#232042; --bg-bottom:#3a2140; --cart-cream:#3a3350; --cart-shadow:#25213a;
+    --ink:#f5eef2; --ink-soft:#c9bcd0; --card-bg:#2c2740; --line:#463d5c;
+  }
+  body.winter{ --bg-top:#dceaf6; --bg-bottom:#eef0fb; --cart-cream:#eef4f8; --cart-shadow:#c9d6e3; }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0; height:100%;
+    font-family:'Nunito', sans-serif;
+    color:var(--ink);
+    background:linear-gradient(180deg,var(--bg-top) 0%, var(--bg-bottom) 100%);
+    overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .4s;
+  }
+  h1,h2,h3,.display{font-family:'Fredoka',sans-serif;}
+  button{
+    font-family:inherit;
+    touch-action:manipulation;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
+  }
+  /* telefonda sürətli toxunuşlarda mətn seçimi/böyütmə menyusu düymələri "tutmamasına" səbəb olurdu */
+  .panel, .panel-row, .build-area, .cone-stack, .lang-row, .action-row, .topbar, .subbar{
+    touch-action:manipulation;
+    -webkit-user-select:none;
+    user-select:none;
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+
+  .screen{
+    min-height:100%;
+    display:flex; flex-direction:column; align-items:center;
+    padding:24px 16px calc(24px + env(safe-area-inset-bottom,0px));
+  }
+  .hidden{display:none !important;}
+
+  /* ---------- LANGUAGE SWITCHER ---------- */
+  .lang-row{display:flex; gap:6px; justify-content:center; flex-wrap:wrap; width:100%;}
+  .lang-btn{
+    width:40px; height:34px; border-radius:10px; border:2px solid var(--line);
+    background:var(--card-bg); font-size:17px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .15s, transform .08s;
+  }
+  .lang-btn:active{transform:scale(.92);}
+  .lang-btn.active{border-color:var(--pink); box-shadow:0 0 0 2px rgba(255,92,138,.25);}
+
+  /* ---------- INTRO ---------- */
+  #intro{justify-content:center; text-align:center; gap:16px; max-width:420px; margin:0 auto;}
+  .cone-hero{font-size:clamp(60px,16vw,88px); line-height:1; filter:drop-shadow(0 10px 14px rgba(0,0,0,.15));}
+  #intro h1{font-size:clamp(26px,7vw,36px); margin:0; letter-spacing:.5px;}
+  #intro p{color:var(--ink-soft); font-size:14px; line-height:1.5; margin:0;}
+  .rules{
+    background:var(--card-bg); border:2px solid var(--line); border-radius:20px;
+    padding:14px 16px; text-align:left; font-size:13px; line-height:1.6; color:var(--ink-soft); width:100%;
+  }
+  .rules b{color:var(--ink);}
+  .primary-btn{
+    background:var(--pink); color:#fff; border:none; border-radius:999px;
+    padding:16px 36px; font-size:18px; font-weight:600; font-family:'Fredoka',sans-serif;
+    cursor:pointer; box-shadow:0 8px 0 var(--pink-dark); transition:transform .08s ease;
+  }
+  .primary-btn:active{transform:translateY(6px); box-shadow:0 2px 0 var(--pink-dark);}
+  .primary-btn:focus-visible, button:focus-visible{outline:3px solid var(--mint); outline-offset:2px;}
+  .secondary-btn{
+    background:none; border:none; color:var(--ink-soft); text-decoration:underline;
+    font-size:13px; cursor:pointer; padding:6px;
+  }
+  .meta-note{font-size:12.5px; color:var(--ink-soft); line-height:1.5;}
+  .lock-progress{font-size:12px; color:var(--ink-soft); background:var(--card-bg); border:2px solid var(--line); border-radius:14px; padding:10px 12px; width:100%; text-align:left;}
+  .lock-progress b{color:var(--ink);}
+
+  /* ---------- GAME HEADER ---------- */
+  #game{width:100%; max-width:520px; margin:0 auto; gap:10px; padding-top:14px;}
+  .topbar{width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px;}
+  .stat{
+    background:var(--card-bg); border:2px solid var(--line); border-radius:16px;
+    padding:6px 12px; text-align:center; min-width:60px;
+  }
+  .stat .num{font-family:'Fredoka'; font-size:18px; font-weight:600; display:block;}
+  .stat .lbl{font-size:10px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.4px;}
+  .timerwrap{flex:1; height:12px; background:var(--card-bg); border:2px solid var(--line); border-radius:999px; overflow:hidden; margin:0 6px;}
+  #timerbar{height:100%; width:100%; background:var(--mint); border-radius:999px; transition:width 1s linear, background .3s;}
+  .mute-btn{
+    width:36px; height:36px; border-radius:12px; border:2px solid var(--line);
+    background:var(--card-bg); font-size:16px; cursor:pointer; flex-shrink:0;
+  }
+  .subbar{width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:12px; color:var(--ink-soft);}
+  .combo-pill{
+    background:var(--amber); color:#fff; border-radius:999px; padding:3px 10px;
+    font-family:'Fredoka'; font-weight:600; font-size:12px; opacity:0; transition:opacity .2s, transform .2s; transform:scale(.8);
+  }
+  .combo-pill.show{opacity:1; transform:scale(1);}
+
+  /* ---------- SERVICE WINDOW ---------- */
+  .window-unit{width:100%; display:flex; flex-direction:column; align-items:center;}
+  .truck-window{width:100%; position:relative;}
+  .awning{
+    height:20px; border-radius:14px 14px 0 0;
+    background:repeating-linear-gradient(90deg, var(--awning-a) 0 16px, var(--awning-b) 16px 32px);
+    box-shadow:0 2px 0 rgba(0,0,0,.08);
+  }
+  .glass{
+    background:linear-gradient(160deg, rgba(207,234,247,.85), rgba(255,255,255,.35));
+    border:3px solid var(--card-bg); border-top:none; border-radius:0 0 16px 16px;
+    padding:12px 12px 16px; display:flex; justify-content:center; align-items:flex-end; gap:10px; min-height:60px;
+  }
+  .customer-face{font-size:40px; flex-shrink:0; transition:transform .15s;}
+  .queue-face{font-size:22px; opacity:.35; flex-shrink:0; padding-bottom:6px;}
+  .patience-wrap{width:calc(100% - 24px); max-width:280px; height:6px; background:var(--card-bg); border-radius:999px; overflow:hidden; margin-top:4px;}
+  #patienceBar{height:100%; width:100%; background:var(--mint); border-radius:999px; transition:width 1s linear, background .3s;}
+
+  /* ---------- ORDER TICKET ---------- */
+  .order-ticket{
+    width:calc(100% - 36px); max-width:280px; margin:6px auto 4px;
+    background:var(--card-bg); border:2px dashed var(--line); border-radius:0 0 12px 12px;
+    padding:10px 16px 12px; display:flex; align-items:center; gap:12px; position:relative;
+    box-shadow:0 6px 12px rgba(0,0,0,.1);
+  }
+  .order-ticket::before{
+    content:'📎'; position:absolute; top:-15px; left:50%; transform:translateX(-50%) rotate(8deg); font-size:20px;
+  }
+  .order-info{flex:1; min-width:0;}
+  .order-info .who{font-size:12px; color:var(--ink-soft); margin-bottom:4px;}
+  .order-mini-cone{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+  .mini-scoop{width:20px; height:20px; border-radius:50%; box-shadow:inset -2px -2px 4px rgba(0,0,0,.15), inset 2px 2px 4px rgba(255,255,255,.5);}
+  .mini-top{font-size:15px;}
+  .mini-container{font-size:15px;}
+  .price-tag{font-family:'Fredoka'; font-weight:600; color:var(--pink); font-size:16px; flex-shrink:0;}
+
+  /* ---------- BUILD AREA ---------- */
+  .build-area{
+    width:100%; background:var(--cart-cream); border-radius:24px; box-shadow:0 10px 0 var(--cart-shadow);
+    padding:18px 16px 14px; display:flex; flex-direction:column; align-items:center;
+    min-height:170px; justify-content:flex-end; position:relative; overflow:hidden;
+  }
+  .cone-stack{display:flex; flex-direction:column-reverse; align-items:center;}
+  .scoop{
+    width:70px; height:52px; border-radius:50% 50% 46% 46%; margin-top:-20px;
+    box-shadow:inset -6px -6px 10px rgba(0,0,0,.15), inset 6px 6px 10px rgba(255,255,255,.45), 0 3px 4px rgba(0,0,0,.12);
+  }
+  .scoop:first-child{margin-top:0;}
+  .cone-shape{
+    width:0; height:0; border-left:32px solid transparent; border-right:32px solid transparent;
+    border-top:70px solid var(--cone); margin-top:-6px; position:relative;
+    filter:drop-shadow(0 4px 3px rgba(0,0,0,.15));
+  }
+  .cone-shape::after{
+    content:''; position:absolute; top:-70px; left:-32px; width:64px; height:70px;
+    background:repeating-linear-gradient(45deg, transparent 0 6px, var(--cone-dark) 6px 8px),
+               repeating-linear-gradient(-45deg, transparent 0 6px, var(--cone-dark) 6px 8px);
+    clip-path: polygon(50% 100%, 0 0, 100% 0); opacity:.5;
+  }
+  .cup-shape{
+    width:78px; height:50px;
+    background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(180,220,230,.55));
+    border:3px solid rgba(255,255,255,.85); border-top:none;
+    clip-path: polygon(8% 0, 92% 0, 82% 100%, 18% 100%);
+    margin-top:-6px; box-shadow:0 4px 3px rgba(0,0,0,.12);
+  }
+  .empty-hint{color:var(--ink-soft); font-size:12.5px; margin-bottom:8px;}
+
+  /* ---------- CONTROLS ---------- */
+  .panel{width:100%; display:flex; flex-direction:column; gap:8px;}
+  .panel-row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
+  .flavor-btn, .topping-btn, .container-btn{
+    border:2px solid var(--line); background:var(--card-bg); border-radius:14px; padding:7px 9px;
+    display:flex; flex-direction:column; align-items:center; gap:4px; font-size:10.5px; color:var(--ink-soft);
+    cursor:pointer; min-width:54px; transition:transform .06s ease, border-color .15s;
+  }
+  .flavor-btn:active, .topping-btn:active, .container-btn:active{transform:scale(.94);}
+  .flavor-swatch{width:24px; height:24px; border-radius:50%; box-shadow:inset -3px -3px 5px rgba(0,0,0,.15), inset 3px 3px 5px rgba(255,255,255,.5);}
+  .topping-btn span.ic, .container-btn span.ic{font-size:20px;}
+  .flavor-btn.locked{opacity:.45; cursor:default; filter:grayscale(.6);}
+  .flavor-btn.locked .lock-badge{font-size:9px; color:var(--ink-soft);}
+  .container-btn.selected{border-color:var(--pink); box-shadow:0 0 0 2px rgba(255,92,138,.25);}
+  .action-row{display:flex; gap:10px; margin-top:2px;}
+  .ghost-btn{
+    flex:1; background:var(--card-bg); border:2px solid var(--line); color:var(--ink-soft);
+    border-radius:999px; padding:12px; font-weight:700; font-size:14px; cursor:pointer;
+  }
+  .serve-btn{
+    flex:2; background:var(--mint); color:#fff; border:none; border-radius:999px; padding:12px;
+    font-family:'Fredoka'; font-weight:600; font-size:16px; cursor:pointer; box-shadow:0 6px 0 #2e9c73;
+  }
+  .serve-btn:active{transform:translateY(4px); box-shadow:0 2px 0 #2e9c73;}
+  .serve-btn:disabled{opacity:.5; box-shadow:none; cursor:default;}
+
+  .feedback{
+    position:fixed; top:14%; left:50%; transform:translate(-50%,-10px);
+    background:var(--card-bg); border-radius:16px; padding:12px 20px; font-family:'Fredoka'; font-weight:600;
+    font-size:15px; box-shadow:0 8px 20px rgba(0,0,0,.18); opacity:0; pointer-events:none;
+    transition:opacity .25s, transform .25s; z-index:20; max-width:86vw; text-align:center;
+  }
+  .feedback.show{opacity:1; transform:translate(-50%,0);}
+  .feedback.good{color:var(--mint);}
+  .feedback.bad{color:var(--pink-dark);}
+
+  .shake{animation:shake .35s;}
+  @keyframes shake{
+    10%,90%{transform:translateX(-3px);} 20%,80%{transform:translateX(5px);}
+    30%,50%,70%{transform:translateX(-8px);} 40%,60%{transform:translateX(8px);}
+  }
+  .confetti-piece{position:absolute; font-size:16px; pointer-events:none; animation:confetti-fall 900ms ease-out forwards; z-index:5;}
+  @keyframes confetti-fall{
+    0%{transform:translateY(0) rotate(0deg); opacity:1;}
+    100%{transform:translateY(100px) rotate(220deg); opacity:0;}
+  }
+
+  /* ---------- DAY SUMMARY ---------- */
+  #daySummary{justify-content:center; text-align:center; gap:14px; max-width:400px; margin:0 auto;}
+  #daySummary .big-emoji{font-size:52px;}
+  #daySummary h2{font-size:24px; margin:0;}
+  #daySummary p{color:var(--ink-soft); font-size:14px; margin:0; line-height:1.5;}
+  .end-stats{display:flex; gap:12px; width:100%;}
+  .end-stat{flex:1; background:var(--card-bg); border:2px solid var(--line); border-radius:16px; padding:12px 8px;}
+  .end-stat .num{font-family:'Fredoka'; font-size:22px; font-weight:600; display:block;}
+  .end-stat .lbl{font-size:11px; color:var(--ink-soft);}
+  .best-note{font-size:13px; color:var(--ink-soft);}
+
+  @media (max-width:360px){
+    .flavor-btn, .topping-btn, .container-btn{min-width:48px; padding:6px 7px;}
+    .scoop{width:60px; height:46px;}
+  }
 </style>
-
-
 </head>
-
-
 <body>
 
-
-​<!-- ============ INTRO ============ -->
-
-
+<!-- ============ INTRO ============ -->
 <div class="screen" id="intro">
-
-
-<div class="lang-row" id="langRowIntro"></div>
-
-
-<div class="cone-hero">🍦</div>
-
-
-<h1 id="titleText">Dondurma Ustası</h1>
-
-
-<p id="subtitleText">Sifarişlərə uyğun dondurma hazırla, müştəriləri məmnun et və vaxt bitmədən mümkün qədər çox pul qazan!</p>
-
-
-<div class="rules">
-
-
-<div><b>1.</b> <span id="ruleText1">Yuxarıdakı bileti oxu.</span></div>
-
-
-<div><b>2.</b> <span id="ruleText2">Konus/stəkan seç, dad və üzərlik əlavə et.</span></div>
-
-
-<div><b>3.</b> <span id="ruleText3">Müştəri səbr edərkən "Təhvil ver!"ə bas.</span></div>
-
-
-<div><b>4.</b> <span id="ruleText4">Gündəlik hədəfə çat, növbəti günə keç!</span></div>
-
-
+  <div class="lang-row" id="langRowIntro"></div>
+  <div class="cone-hero">🍦</div>
+  <h1 id="titleText">Dondurma Ustası</h1>
+  <p id="subtitleText">Sifarişlərə uyğun dondurma hazırla, müştəriləri məmnun et və vaxt bitmədən mümkün qədər çox pul qazan!</p>
+  <div class="rules">
+    <div><b>1.</b> <span id="ruleText1">Yuxarıdakı bileti oxu.</span></div>
+    <div><b>2.</b> <span id="ruleText2">Konus/stəkan seç, dad və üzərlik əlavə et.</span></div>
+    <div><b>3.</b> <span id="ruleText3">Müştəri səbr edərkən "Təhvil ver!"ə bas.</span></div>
+    <div><b>4.</b> <span id="ruleText4">Gündəlik hədəfə çat, növbəti günə keç!</span></div>
+  </div>
+  <button class="primary-btn" id="startBtn">Başla!</button>
+  <div class="best-note" id="bestNote"></div>
+  <div class="lock-progress" id="lockProgress"></div>
 </div>
 
-
-<button class="primary-btn" id="startBtn">Başla!</button>
-
-
-<div class="best-note" id="bestNote"></div>
-
-
-<div class="lock-progress" id="lockProgress"></div>
-
-
-</div>
-
-
-​<!-- ============ GAME ============ -->
-
-
+<!-- ============ GAME ============ -->
 <div class="screen hidden" id="game">
+  <div class="lang-row" id="langRowGame"></div>
+  <div class="topbar">
+    <div class="stat"><span class="num" id="dayNum">1</span><span class="lbl" id="dayLblText">Gün</span></div>
+    <div class="timerwrap"><div id="timerbar"></div></div>
+    <button class="mute-btn" id="muteBtn">🔊</button>
+  </div>
+  <div class="subbar">
+    <span id="goalText">0/10 🪙</span>
+    <span class="combo-pill" id="comboPill"></span>
+    <span id="scoreText">Xal: 0</span>
+  </div>
 
+  <div class="window-unit">
+    <div class="truck-window">
+      <div class="awning"></div>
+      <div class="glass" id="glassArea">
+        <div class="customer-face" id="customerFace">🙂</div>
+      </div>
+    </div>
+    <div class="patience-wrap"><div id="patienceBar"></div></div>
+    <div class="order-ticket">
+      <div class="order-info">
+        <div class="who" id="orderLbl">Sifariş:</div>
+        <div class="order-mini-cone" id="orderMini"></div>
+      </div>
+      <div class="price-tag" id="orderPrice">0</div>
+    </div>
+  </div>
 
-<div class="lang-row" id="langRowGame"></div>
+  <div class="build-area" id="buildArea">
+    <div class="empty-hint" id="emptyHint">Konusu hazırlamağa başla 👇</div>
+    <div class="cone-stack" id="coneStack"></div>
+    <div class="cone-shape" id="coneShape"></div>
+    <div class="cup-shape hidden" id="cupShape"></div>
+  </div>
 
-
-<div class="topbar">
-
-
-<div class="stat"><span class="num" id="dayNum">1</span><span class="lbl" id="dayLblText">Gün</span></div>
-
-
-<div class="timerwrap"><div id="timerbar"></div></div>
-
-
-<button class="mute-btn" id="muteBtn" aria-label="Audio toggle">🔊</button>
-
-
+  <div class="panel">
+    <div class="panel-row" id="containerRow"></div>
+    <div class="panel-row" id="flavorRow"></div>
+    <div class="panel-row" id="toppingRow"></div>
+    <div class="action-row">
+      <button class="ghost-btn" id="resetBtn">Sıfırla</button>
+      <button class="serve-btn" id="serveBtn">Təhvil ver!</button>
+    </div>
+  </div>
 </div>
 
-
-<div class="subbar">
-
-
-<span id="goalText">0/10 🪙</span>
-
-
-<span class="combo-pill" id="comboPill"></span>
-
-
-<span id="scoreText">Xal: 0</span>
-
-
-</div>
-
-
-​<div class="window-unit">
-
-
-<div class="truck-window">
-
-
-<div class="awning"></div>
-
-
-<div class="glass" id="glassArea">
-
-
-<div class="customer-face" id="customerFace">🙂</div>
-
-
-</div>
-
-
-</div>
-
-
-<div class="patience-wrap"><div id="patienceBar"></div></div>
-
-
-<div class="order-ticket">
-
-
-<div class="order-info">
-
-
-<div class="who" id="orderLbl">Sifariş:</div>
-
-
-<div class="order-mini-cone" id="orderMini"></div>
-
-
-</div>
-
-
-<div class="price-tag" id="orderPrice">0</div>
-
-
-</div>
-
-
-</div>
-
-
-​<div class="build-area" id="buildArea">
-
-
-<div class="empty-hint" id="emptyHint">Konusu hazırlamağa başla 👇</div>
-
-
-<div class="cone-stack" id="coneStack"></div>
-
-
-<div class="cone-shape" id="coneShape"></div>
-
-
-<div class="cup-shape hidden" id="cupShape"></div>
-
-
-</div>
-
-
-​<div class="panel">
-
-
-<div class="panel-row" id="containerRow"></div>
-
-
-<div class="panel-row" id="flavorRow"></div>
-
-
-<div class="panel-row" id="toppingRow"></div>
-
-
-<div class="action-row">
-
-
-<button class="ghost-btn" id="resetBtn">Sıfırla</button>
-
-
-<button class="serve-btn" id="serveBtn">Təhvil ver!</button>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-​<!-- ============ DAY SUMMARY ============ -->
-
-
+<!-- ============ DAY SUMMARY ============ -->
 <div class="screen hidden" id="daySummary">
-
-
-<div class="big-emoji" id="summaryEmoji">🏆</div>
-
-
-<h2 id="summaryTitle">Gün tamamlandı!</h2>
-
-
-<p id="summarySub"></p>
-
-
-<div class="end-stats">
-
-
-<div class="end-stat"><span class="num" id="summaryCoins">0</span><span class="lbl" id="summaryCoinsLbl">🪙</span></div>
-
-
-<div class="end-stat"><span class="num" id="summaryLifetime">0</span><span class="lbl" id="summaryLifetimeLbl"></span></div>
-
-
+  <div class="big-emoji" id="summaryEmoji">🏆</div>
+  <h2 id="summaryTitle">Gün tamamlandı!</h2>
+  <p id="summarySub"></p>
+  <div class="end-stats">
+    <div class="end-stat"><span class="num" id="summaryCoins">0</span><span class="lbl" id="summaryCoinsLbl">🪙</span></div>
+    <div class="end-stat"><span class="num" id="summaryLifetime">0</span><span class="lbl" id="summaryLifetimeLbl"></span></div>
+  </div>
+  <button class="primary-btn" id="summaryPrimaryBtn">Növbəti gün</button>
+  <button class="secondary-btn" id="summaryMenuBtn">Menyuya qayıt</button>
 </div>
 
+<div class="feedback" id="feedback"></div>
 
-<button class="primary-btn" id="summaryPrimaryBtn">Növbəti gün</button>
-
-
-<button class="secondary-btn" id="summaryMenuBtn">Menyuya qayıt</button>
-
-
-</div>
-
-
-​<div class="feedback" id="feedback"></div>
-
-
-​<script>
-
-
+<script>
 (function(){
-
-
-"use strict";
-
-
-​var LANG_LIST = [
-
-
-{code:'az', flag:'🇦🇿'}, {code:'en', flag:'🇬🇧'}, {code:'tr', flag:'🇹🇷'}, {code:'ru', flag:'🇷🇺'}
-
-
-];
-
-
-​var STR = {
-
-
-az:{
-
-
-title:'Dondurma Ustası',
-
-
-subtitle:'Sifarişlərə uyğun dondurma hazırla, müştəriləri məmnun et və gündəlik hədəfə çat!',
-
-
-rule1:'Yuxarıdakı bileti oxu.', rule2:'Konus/stəkan seç, dad və üzərlik əlavə et.',
-
-
-rule3:'Müştəri səbr edərkən "Təhvil ver!"ə bas.', rule4:'Gündəlik hədəfə çat, növbəti günə keç!',
-
-
-start:'Başla!', bestPrefix:'Ən yaxşı nəticən: Gün', scoreLbl:'Xal:', orderLbl:'Sifariş:',
-
-
-emptyHint:'Hazırlamağa başla 👇', reset:'Sıfırla', serve:'Təhvil ver!',
-
-
-good:'Əla! 🎉', bad:'Səhv sifariş 😕', patienceOut:'Müştəri getdi 😕',
-
-
-dayLbl:'Gün', goalLbl:'Hədəf', comboLbl:'Seriya',
-
-
-daySuccessTitle:'Gün tamamlandı! 🎉', daySuccessSub:'Qalan vaxta görə bonus qazandın!',
-
-
-dayFailTitle:'Vaxt bitdi 😮', dayFailSub:'Hədəfə çatmadın, amma qazandığın qaldı.',
-
-
-nextDayBtn:'Növbəti gün →', retryDayBtn:'Yenidən cəhd et', menuBtn:'Menyuya qayıt',
-
-
-lifetimeLbl:'Ümumi qazanc', coinsLbl:'Bu gün qazanılan',
-
-
-tipWord:'bəxşiş', soundOn:'Səs açıq', soundOff:'Səs bağlı',
-
-
-containerCone:'Konus', containerCup:'Stəkan',
-
-
-lockedTemplate:'{n}🪙-da açılır',
-
-
-flavors:{vanil:'Vanil', sokolad:'Şokolad', ciyelek:'Çiyələk', nane:'Nanə', limon:'Limon', kokos:'Kokos', qara_uzum:'Qara Üzüm', isti_sokolad:'İsti Şokolad'},
-
-
-toppings:{albali:'Albalı', sokoladus:'Şokolad', renkli:'Rəngli'}
-
-
-},
-
-
-en:{
-
-
-title:'Ice Cream Master',
-
-
-subtitle:'Build ice creams that match each order, keep customers happy, and hit your daily goal!',
-
-
-rule1:'Read the ticket above.', rule2:'Pick a cone/cup, add flavors and toppings.',
-
-
-rule3:'Press "Serve!" before the customer runs out of patience.', rule4:'Hit the daily goal to move to the next day!',
-
-
-start:'Start!', bestPrefix:'Your best: Day', scoreLbl:'Score:', orderLbl:'Order:',
-
-
-emptyHint:'Start building 👇', reset:'Reset', serve:'Serve!',
-
-
-good:'Great! 🎉', bad:'Wrong order 😕', patienceOut:'Customer left 😕',
-
-
-dayLbl:'Day', goalLbl:'Goal', comboLbl:'Combo',
-
-
-daySuccessTitle:'Day complete! 🎉', daySuccessSub:'You earned a bonus for the time left!',
-
-
-dayFailTitle:"Time's up 😮", dayFailSub:"You didn't reach the goal, but what you earned stays.",
-
-
-nextDayBtn:'Next day →', retryDayBtn:'Try again', menuBtn:'Back to menu',
-
-
-lifetimeLbl:'Lifetime coins', coinsLbl:'Earned today',
-
-
-tipWord:'tip', soundOn:'Sound on', soundOff:'Sound off',
-
-
-containerCone:'Cone', containerCup:'Cup',
-
-
-lockedTemplate:'Unlocks at {n}🪙',
-
-
-flavors:{vanil:'Vanilla', sokolad:'Chocolate', ciyelek:'Strawberry', nane:'Mint', limon:'Lemon', kokos:'Coconut', qara_uzum:'Blueberry', isti_sokolad:'Hot Cocoa'},
-
-
-toppings:{albali:'Cherry', sokoladus:'Choc chips', renkli:'Sprinkles'}
-
-
-},
-
-
-tr:{
-
-
-title:'Dondurma Ustası',
-
-
-subtitle:'Siparişlere uygun dondurma hazırla, müşterileri mutlu et ve günlük hedefe ulaş!',
-
-
-rule1:'Yukarıdaki fişi oku.', rule2:'Külah/kase seç, lezzet ve üzerlik ekle.',
-
-
-rule3:'Müşteri sabrederken "Servis et!"e bas.', rule4:'Günlük hedefe ulaş, sonraki güne geç!',
-
-
-start:'Başla!', bestPrefix:'En iyi sonucun: Gün', scoreLbl:'Puan:', orderLbl:'Sipariş:',
-
-
-emptyHint:'Hazırlamaya başla 👇', reset:'Sıfırla', serve:'Servis et!',
-
-
-good:'Harika! 🎉', bad:'Yanlış sipariş 😕', patienceOut:'Müşteri gitti 😕',
-
-
-dayLbl:'Gün', goalLbl:'Hedef', comboLbl:'Seri',
-
-
-daySuccessTitle:'Gün tamamlandı! 🎉', daySuccessSub:'Kalan süre için bonus kazandın!',
-
-
-dayFailTitle:'Süre doldu 😮', dayFailSub:'Hedefe ulaşamadın ama kazandıkların kaldı.',
-
-
-nextDayBtn:'Sonraki gün →', retryDayBtn:'Tekrar dene', menuBtn:'Menüye dön',
-
-
-lifetimeLbl:'Toplam kazanç', coinsLbl:'Bugün kazanılan',
-
-
-tipWord:'bahşiş', soundOn:'Ses açık', soundOff:'Ses kapalı',
-
-
-containerCone:'Külah', containerCup:'Kase',
-
-
-lockedTemplate:'{n}🪙 ile açılıyor',
-
-
-flavors:{vanil:'Vanilya', sokolad:'Çikolata', ciyelek:'Çilek', nane:'Nane', limon:'Limon', kokos:'Hindistan Cevizi', qara_uzum:'Yaban Mersini', isti_sokolad:'Sıcak Çikolata'},
-
-
-toppings:{albali:'Vişne', sokoladus:'Çikolata parçası', renkli:'Renkli şeker'}
-
-
-},
-
-
-ru:{
-
-
-title:'Мастер мороженого',
-
-
-subtitle:'Готовь мороженое точно по заказу, радуй покупателей и выполняй дневную цель!',
-
-
-rule1:'Прочитай заказ вверху.', rule2:'Выбери рожок/стакан, добавь вкус и топпинги.',
-
-
-rule3:'Нажми «Подать!», пока у покупателя есть терпение.', rule4:'Выполни дневную цель — и вперёд, на следующий день!',
-
-
-start:'Начать!', bestPrefix:'Лучший результат: День', scoreLbl:'Очки:', orderLbl:'Заказ:',
-
-
-emptyHint:'Начни собирать 👇', reset:'Сбросить', serve:'Подать!',
-
-
-good:'Отлично! 🎉', bad:'Неверный заказ 😕', patienceOut:'Покупатель ушёл 😕',
-
-
-dayLbl:'День', goalLbl:'Цель', comboLbl:'Серия',
-
-
-daySuccessTitle:'День завершён! 🎉', daySuccessSub:'Бонус за оставшееся время!',
-
-
-dayFailTitle:'Время вышло 😮', dayFailSub:'Цель не достигнута, но всё заработанное осталось.',
-
-
-nextDayBtn:'Следующий день →', retryDayBtn:'Попробовать снова', menuBtn:'В меню',
-
-
-lifetimeLbl:'Всего заработано', coinsLbl:'Заработано сегодня',
-
-
-tipWord:'чаевые', soundOn:'Звук вкл', soundOff:'Звук выкл',
-
-
-containerCone:'Рожок', containerCup:'Стакан',
-
-
-lockedTemplate:'Откроется за {n}🪙',
-
-
-flavors:{vanil:'Ваниль', sokolad:'Шоколад', ciyelek:'Клубника', nane:'Мята', limon:'Лимон', kokos:'Кокос', qara_uzum:'Черника', isti_sokolad:'Горячий шоколад'},
-
-
-toppings:{albali:'Вишня', sokoladus:'Шок. крошка', renkli:'Посыпка'}
-
-
-}
-
-
-};
-
-
-​var FLAVOR_BASE = [
-
-
-{id:'vanil', color:'#fff3d6'}, {id:'sokolad', color:'#8a5a3b'}, {id:'ciyelek', color:'#ff93ae'},
-
-
-{id:'nane', color:'#8fe3c0'}, {id:'limon', color:'#fff176'}
-
-
-];
-
-
-var FLAVOR_WINTER_SPECIAL = {id:'isti_sokolad', color:'#6b3a2a'};
-
-
-var FLAVOR_UNLOCKS = [
-
-
-{id:'kokos', color:'#f7f2e7', threshold:15},
-
-
-{id:'qara_uzum', color:'#5b4b8a', threshold:40}
-
-
-];
-
-
-var TOPPING_DEFS = [
-
-
-{id:'albali', ic:'🍒'}, {id:'sokoladus', ic:'🍫'}, {id:'renkli', ic:'🌈'}
-
-
-];
-
-
-var COIN = '🪙';
-
-
-​var state = {
-
-
-lang:'az', lifetime:0, muted:false, bestDay:1,
-
-
-day:1, season:'summer', dayGoal:10, dayTimeLimit:45, dayTimeLeft:45,
-
-
-dayCoins:0, score:0, combo:0,
-
-
-selectedContainer:'cone',
-
-
-playerScoops:[], playerToppings:[],
-
-
-order:null, running:false, timerId:null, pendingAction:'next'
-
-
-};
-
-
-​function getLangStr(){ return STR[state.lang] || STR.az; }
-
-
-function round1(x){ return Math.round(x*10)/10; }
-
-
-​var el = {
-
-
-intro: document.getElementById('intro'), game: document.getElementById('game'), daySummary: document.getElementById('daySummary'),
-
-
-startBtn: document.getElementById('startBtn'),
-
-
-dayNum: document.getElementById('dayNum'), dayLblText: document.getElementById('dayLblText'),
-
-
-timerbar: document.getElementById('timerbar'), muteBtn: document.getElementById('muteBtn'),
-
-
-goalText: document.getElementById('goalText'), comboPill: document.getElementById('comboPill'), scoreText: document.getElementById('scoreText'),
-
-
-customerFace: document.getElementById('customerFace'), glassArea: document.getElementById('glassArea'),
-
-
-patienceBar: document.getElementById('patienceBar'),
-
-
-orderMini: document.getElementById('orderMini'), orderPrice: document.getElementById('orderPrice'), orderLbl: document.getElementById('orderLbl'),
-
-
-coneStack: document.getElementById('coneStack'), coneShape: document.getElementById('coneShape'), cupShape: document.getElementById('cupShape'),
-
-
-emptyHint: document.getElementById('emptyHint'), buildArea: document.getElementById('buildArea'),
-
-
-containerRow: document.getElementById('containerRow'), flavorRow: document.getElementById('flavorRow'), toppingRow: document.getElementById('toppingRow'),
-
-
-resetBtn: document.getElementById('resetBtn'), serveBtn: document.getElementById('serveBtn'),
-
-
-feedback: document.getElementById('feedback'),
-
-
-bestNote: document.getElementById('bestNote'), lockProgress: document.getElementById('lockProgress'),
-
-
-titleText: document.getElementById('titleText'), subtitleText: document.getElementById('subtitleText'),
-
-
-ruleText1: document.getElementById('ruleText1'), ruleText2: document.getElementById('ruleText2'),
-
-
-ruleText3: document.getElementById('ruleText3'), ruleText4: document.getElementById('ruleText4'),
-
-
-summaryEmoji: document.getElementById('summaryEmoji'), summaryTitle: document.getElementById('summaryTitle'), summarySub: document.getElementById('summarySub'),
-
-
-summaryCoins: document.getElementById('summaryCoins'), summaryCoinsLbl: document.getElementById('summaryCoinsLbl'),
-
-
-summaryLifetime: document.getElementById('summaryLifetime'), summaryLifetimeLbl: document.getElementById('summaryLifetimeLbl'),
-
-
-summaryPrimaryBtn: document.getElementById('summaryPrimaryBtn'), summaryMenuBtn: document.getElementById('summaryMenuBtn'),
-
-
-langRowIntro: document.getElementById('langRowIntro'), langRowGame: document.getElementById('langRowGame')
-
-
-};
-
-
-​/* ---------- persistence ---------- */
-
-
-function safeGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
-
-
-function safeSet(k,v){ try{ localStorage.setItem(k, v); }catch(e){} }
-
-
-​function getLifetime(){ var v = safeGet('dondurma_lifetime'); return v ? parseFloat(v) : 0; }
-
-
-function addLifetime(amount){ var v = round1(getLifetime() + amount); safeSet('dondurma_lifetime', String(v)); state.lifetime = v; return v; }
-
-
-function getBestDay(){ var v = safeGet('dondurma_bestday'); return v ? parseInt(v,10) : 1; }
-
-
-function setBestDay(v){ safeSet('dondurma_bestday', String(v)); }
-
-
-function getSavedLang(){ var v = safeGet('dondurma_lang'); return v && STR[v] ? v : null; }
-
-
-function saveLang(v){ safeSet('dondurma_lang', v); }
-
-
-function getMuted(){ return safeGet('dondurma_muted') === '1'; }
-
-
-function setMutedStore(v){ safeSet('dondurma_muted', v ? '1' : '0'); }
-
-
-​/* ---------- audio ---------- */
-
-
-var audioCtx = null;
-
-
-function ensureAudio(){
-
-
-if(audioCtx || state.muted) return;
-
-
-try{
-
-
-audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-
-if(audioCtx.state === 'suspended') { audioCtx.resume(); }
-
-
-}catch(e){}
-
-
-}
-
-
-function beep(freq, dur, type){
-
-
-if(state.muted || !audioCtx) return;
-
-
-try{
-
-
-if(audioCtx.state === 'suspended') { audioCtx.resume(); }
-
-
-var o = audioCtx.createOscillator(); var g = audioCtx.createGain();
-
-
-o.type = type || 'sine'; o.frequency.value = freq;
-
-
-o.connect(g); g.connect(audioCtx.destination);
-
-
-g.gain.setValueAtTime(0.16, audioCtx.currentTime);
-
-
-g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
-
-
-o.start(); o.stop(audioCtx.currentTime + dur);
-
-
-}catch(e){}
-
-
-}
-
-
-function playSuccessSound(){ beep(523,0.12); setTimeout(function(){ beep(784,0.15); }, 100); }
-
-
-function playFailSound(){ beep(170,0.28,'sawtooth'); }
-
-
-​function spawnConfetti(){
-
-
-var pieces = ['🎉','⭐','🍬','✨'];
-
-
-for(var i=0;i<6;i++){
-
-
-var s = document.createElement('span');
-
-
-s.className = 'confetti-piece';
-
-
-s.textContent = pieces[Math.floor(Math.random()*pieces.length)];
-
-
-s.style.left = (10 + Math.random()*80) + '%';
-
-
-s.style.top = (10 + Math.random()*20) + '%';
-
-
-el.buildArea.appendChild(s);
-
-
-(function(node){ setTimeout(function(){ if(node.parentNode) node.parentNode.removeChild(node); }, 950); })(s);
-
-
-}
-
-
-}
-
-
-​/* ---------- language ---------- */
-
-
-function renderLangRow(container){
-
-
-if(!container) return;
-
-
-container.innerHTML = '';
-
-
-LANG_LIST.forEach(function(l){
-
-
-var btn = document.createElement('button');
-
-
-btn.className = 'lang-btn' + (l.code === state.lang ? ' active' : '');
-
-
-btn.textContent = l.flag;
-
-
-btn.setAttribute('aria-label', l.code);
-
-
-btn.addEventListener('click', function(e){ e.preventDefault(); applyLanguage(l.code); });
-
-
-btn.addEventListener('touchend', function(e){ e.preventDefault(); applyLanguage(l.code); }, {passive:false});
-
-
-container.appendChild(btn);
-
-
-});
-
-
-}
-
-
-function renderAllLangRows(){ renderLangRow(el.langRowIntro); renderLangRow(el.langRowGame); }
-
-
-​function applyStaticTexts(){
-
-
-var s = getLangStr();
-
-
-document.documentElement.lang = state.lang;
-
-
-el.titleText.textContent = s.title; el.subtitleText.textContent = s.subtitle;
-
-
-el.ruleText1.textContent = s.rule1; el.ruleText2.textContent = s.rule2;
-
-
-el.ruleText3.textContent = s.rule3; el.ruleText4.textContent = s.rule4;
-
-
-el.startBtn.textContent = s.start;
-
-
-el.dayLblText.textContent = s.dayLbl;
-
-
-el.orderLbl.textContent = s.orderLbl;
-
-
-el.emptyHint.textContent = s.emptyHint;
-
-
-el.resetBtn.textContent = s.reset; el.serveBtn.textContent = s.serve;
-
-
-el.muteBtn.setAttribute('aria-label', state.muted ? s.soundOff : s.soundOn);
-
-
-el.summaryMenuBtn.textContent = s.menuBtn;
-
-
-el.summaryCoinsLbl.textContent = COIN + ' ' + s.coinsLbl;
-
-
-el.summaryLifetimeLbl.textContent = s.lifetimeLbl;
-
-
-}
-
-
-​function applyLanguage(code){
-
-
-if(!STR[code]) return;
-
-
-state.lang = code; saveLang(code);
-
-
-applyStaticTexts(); renderAllLangRows(); buildPanels(); buildContainerRow();
-
-
-showBestOnIntro();
-
-
-if(state.order){ renderOrder(); updateGoalText(); }
-
-
-}
-
-
-​function showBestOnIntro(){
-
-
-var s = getLangStr();
-
-
-el.bestNote.textContent = s.bestPrefix + ' ' + state.bestDay;
-
-
-var lockedList = FLAVOR_UNLOCKS.filter(function(f){ return state.lifetime < f.threshold; });
-
-
-if(lockedList.length){
-
-
-var next = lockedList[0];
-
-
-var name = s.flavors[next.id];
-
-
-el.lockProgress.innerHTML = '<b>' + s.lifetimeLbl + ': ' + state.lifetime.toFixed(1) + ' ' + COIN + '</b>
-
-
-' +
-
-
-s.lockedTemplate.replace('{n}', next.threshold) + ' — ' + name;
-
-
-} else {
-
-
-el.lockProgress.innerHTML = '<b>' + s.lifetimeLbl + ': ' + state.lifetime.toFixed(1) + ' ' + COIN + '</b>';
-
-
-}
-
-
-}
-
-
-​/* ---------- season & unlocks ---------- */
-
-
-function computeSeason(day){ return ((day - 1) % 4 < 2) ? 'summer' : 'winter'; }
-
-
-function applySeasonClass(){ document.body.classList.remove('winter','summer'); document.body.classList.add(state.season); }
-
-
-function getUnlockedExtras(){ return FLAVOR_UNLOCKS.filter(function(f){ return state.lifetime >= f.threshold; }); }
-
-
-function getActiveFlavorPool(){
-
-
-var base = FLAVOR_BASE.slice();
-
-
-if(state.season === 'winter'){ base = base.filter(function(f){ return f.id !== 'limon'; }).concat([FLAVOR_WINTER_SPECIAL]); }
-
-
-return base.concat(getUnlockedExtras());
-
-
-}
-
-
-​function addTouchAction(elem, handler){
-
-
-elem.addEventListener('click', function(e){ e.preventDefault(); handler(e); });
-
-
-elem.addEventListener('touchend', function(e){ e.preventDefault(); handler(e); }, {passive:false});
-
-
-}
-
-
-​function buildContainerRow(){
-
-
-var s = getLangStr();
-
-
-el.containerRow.innerHTML = '';
-
-
-[{id:'cone', ic:'🍦', label:s.containerCone}, {id:'cup', ic:'🥤', label:s.containerCup}].forEach(function(c){
-
-
-var btn = document.createElement('button');
-
-
-btn.className = 'container-btn' + (state.selectedContainer === c.id ? ' selected' : '');
-
-
-btn.innerHTML = '<span class="ic">'+c.ic+'</span><span>'+c.label+'</span>';
-
-
-addTouchAction(btn, function(){
-
-
-state.selectedContainer = c.id;
-
-
-buildContainerRow();
-
-
-renderBuild();
-
-
-});
-
-
-el.containerRow.appendChild(btn);
-
-
-});
-
-
-}
-
-
-​function buildPanels(){
-
-
-var s = getLangStr();
-
-
-el.flavorRow.innerHTML = '';
-
-
-var activeIds = getActiveFlavorPool().map(function(f){ return f.id; });
-
-
-var seen = {};
-
-
-getActiveFlavorPool().concat(FLAVOR_UNLOCKS).forEach(function(f){
-
-
-if(seen[f.id]) return; seen[f.id] = true;
-
-
-var name = s.flavors[f.id];
-
-
-var unlocked = activeIds.indexOf(f.id) !== -1;
-
-
-var btn = document.createElement('button');
-
-
-btn.className = 'flavor-btn' + (unlocked ? '' : ' locked');
-
-
-if(unlocked){
-
-
-btn.innerHTML = '<span class="flavor-swatch" style="background:'+f.color+'"></span><span>'+name+'</span>';
-
-
-addTouchAction(btn, function(){ addScoop(f.id); });
-
-
-} else {
-
-
-var thr = FLAVOR_UNLOCKS.filter(function(u){return u.id===f.id;})[0].threshold;
-
-
-btn.innerHTML = '<span class="flavor-swatch" style="background:'+f.color+'"></span><span>🔒 '+name+'</span><span class="lock-badge">'+thr+COIN+'</span>';
-
-
-btn.disabled = true;
-
-
-}
-
-
-btn.setAttribute('aria-label', name);
-
-
-el.flavorRow.appendChild(btn);
-
-
-});
-
-
-el.toppingRow.innerHTML = '';
-
-
-TOPPING_DEFS.forEach(function(t){
-
-
-var name = s.toppings[t.id];
-
-
-var btn = document.createElement('button');
-
-
-btn.className = 'topping-btn'; btn.setAttribute('aria-label', name);
-
-
-btn.innerHTML = '<span class="ic">'+t.ic+'</span><span>'+name+'</span>';
-
-
-addTouchAction(btn, function(){ addTopping(t.id); });
-
-
-el.toppingRow.appendChild(btn);
-
-
-});
-
-
-}
-
-
-​function flavorDef(id){
-
-
-var all = FLAVOR_BASE.concat([FLAVOR_WINTER_SPECIAL]).concat(FLAVOR_UNLOCKS);
-
-
-for(var i=0;i<all.length;i++){ if(all[i].id=id) return all[i]; }
-
-
-return null;
-
-
-}
-
-
-function toppingDef(id){ for(var i=0;i<TOPPING_DEFS.length;i++){ if(TOPPING_DEFS[i].id=id) return TOPPING_DEFS[i]; } return null; }
-
-
-​/* ---------- build interactions ---------- */
-
-
-function addScoop(id){
-
-
-if(!state.running) return;
-
-
-ensureAudio();
-
-
-if(state.playerScoops.length >= 4) return flashPanelLimit();
-
-
-state.playerScoops.push(id);
-
-
-renderBuild();
-
-
-}
-
-
-function addTopping(id){
-
-
-if(!state.running) return;
-
-
-ensureAudio();
-
-
-if(state.playerToppings.length >= 3) return flashPanelLimit();
-
-
-state.playerToppings.push(id);
-
-
-renderBuild();
-
-
-}
-
-
-function flashPanelLimit(){
-
-
-el.buildArea.classList.add('shake');
-
-
-setTimeout(function(){ el.buildArea.classList.remove('shake'); }, 350);
-
-
-}
-
-
-​function renderBuild(){
-
-
-el.coneShape.classList.toggle('hidden', state.selectedContainer !== 'cone');
-
-
-el.cupShape.classList.toggle('hidden', state.selectedContainer !== 'cup');
-
-
-el.coneStack.innerHTML = '';
-
-
-state.playerScoops.forEach(function(id){
-
-
-var f = flavorDef(id);
-
-
-var d = document.createElement('div'); d.className = 'scoop'; d.style.background = f.color;
-
-
-el.coneStack.appendChild(d);
-
-
-});
-
-
-if(state.playerToppings.length){
-
-
-var wrap = document.createElement('div'); wrap.style.display='flex'; wrap.style.gap='2px';
-
-
-state.playerToppings.forEach(function(id){
-
-
-var t = toppingDef(id);
-
-
-var s = document.createElement('span'); s.style.fontSize='16px'; s.textContent = t.ic;
-
-
-wrap.appendChild(s);
-
-
-});
-
-
-el.coneStack.appendChild(wrap);
-
-
-}
-
-
-el.emptyHint.style.display = state.playerScoops.length ? 'none' : 'block';
-
-
-el.serveBtn.disabled = state.playerScoops.length === 0;
-
-
-}
-
-
-function resetBuild(){ state.playerScoops = []; state.playerToppings = []; renderBuild(); }
-
-
-​function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
-
-
-function pick(arr){ return arr[randInt(0,arr.length-1)]; }
-
-
-​/* ---------- queue silhouettes ---------- */
-
-
-function renderQueue(){
-
-
-var qCount = Math.min(2, Math.floor((state.day-1)/2));
-
-
-var existing = el.glassArea.querySelectorAll('.queue-face');
-
-
-for(var i=0;i<existing.length;i++){ existing[i].parentNode.removeChild(existing[i]); }
-
-
-for(var j=0;j<qCount;j++){
-
-
-var s = document.createElement('span'); s.className = 'queue-face'; s.textContent = '🧍';
-
-
-if(j===0) el.glassArea.insertBefore(s, el.customerFace); else el.glassArea.appendChild(s);
-
-
-}
-
-
-}
-
-
-​/* ---------- orders ---------- /
-
-
-function newOrder(){
-
-
-var difficulty = Math.min(3, Math.floor((state.day-1)/2));
-
-
-var pool = getActiveFlavorPool();
-
-
-var scoopCount = Math.min(4, randInt(1, 2+difficulty));
-
-
-var toppingCount = randInt(0, Math.min(2, 1+difficulty));
-
-
-var scoops = []; for(var i=0;i<scoopCount;i++){ scoops.push(pick(pool).id); }
-
-
-var toppingPool = TOPPING_DEFS.slice(); var toppings = [];
-
-
-for(var j=0;j<toppingCount;j++){
-
-
-if(!toppingPool.length) break;
-
-
-var idx = randInt(0, toppingPool.length-1);
-
-
-toppings.push(toppingPool[idx].id); toppingPool.splice(idx,1);
-
-
-}
-
-
-var container = Math.random() < 0.3 ? 'cup' : 'cone';
-
-
-var price = round1(scoopCount0.8 + toppings.length0.4 + (container==='cup'?0.1:0));
-
-
-var patienceTotal = Math.max(7, randInt(12 - state.day0.5, 16 - state.day*0.5));
-
-
-state.order = { scoops:scoops, toppings:toppings, container:container, price:price, patienceTotal:patienceTotal, patienceLeft:patienceTotal };
-
-
-renderOrder(); renderQueue();
-
-
-el.patienceBar.style.width = '100%'; el.patienceBar.style.background = 'var(--mint)';
-
-
-el.customerFace.textContent = '🙂';
-
-
-}
-
-
-​function renderOrder(){
-
-
-el.orderMini.innerHTML = '';
-
-
-state.order.scoops.forEach(function(id){
-
-
-var f = flavorDef(id);
-
-
-var d = document.createElement('div'); d.className='mini-scoop'; d.style.background = f.color;
-
-
-el.orderMini.appendChild(d);
-
-
-});
-
-
-state.order.toppings.forEach(function(id){
-
-
-var t = toppingDef(id);
-
-
-var s = document.createElement('span'); s.className='mini-top'; s.textContent = t.ic;
-
-
-el.orderMini.appendChild(s);
-
-
-});
-
-
-var contIcon = document.createElement('span');
-
-
-contIcon.className = 'mini-container';
-
-
-contIcon.textContent = state.order.container === 'cup' ? '🥤' : '🍦';
-
-
-el.orderMini.appendChild(contIcon);
-
-
-el.orderPrice.textContent = state.order.price.toFixed(1) + ' ' + COIN;
-
-
-}
-
-
-​function sameMultiset(a,b){
-
-
-if(a.length !== b.length) return false;
-
-
-var ac = a.slice().sort(); var bc = b.slice().sort();
-
-
-for(var i=0;i<ac.length;i++){ if(ac[i]!==bc[i]) return false; }
-
-
-return true;
-
-
-}
-
-
-​function showFeedback(text, good){
-
-
-el.feedback.textContent = text;
-
-
-el.feedback.className = 'feedback show ' + (good?'good':'bad');
-
-
-clearTimeout(el.feedback._t);
-
-
-el.feedback._t = setTimeout(function(){ el.feedback.className = 'feedback'; }, 950);
-
-
-}
-
-
-​function comboMultFor(n){ if(n>=10) return 2.0; if(n>=6) return 1.6; if(n>=3) return 1.3; return 1.0; }
-
-
-​function updateComboPill(){
-
-
-var s = getLangStr();
-
-
-if(state.combo >= 2){
-
-
-el.comboPill.textContent = s.comboLbl + ' x' + state.combo;
-
-
-el.comboPill.classList.add('show');
-
-
-} else {
-
-
-el.comboPill.classList.remove('show');
-
-
-}
-
-
-}
-
-
-​function updateGoalText(){
-
-
-el.goalText.textContent = state.dayCoins.toFixed(1) + '/' + state.dayGoal + ' ' + COIN;
-
-
-el.scoreText.textContent = getLangStr().scoreLbl + ' ' + state.score;
-
-
-}
-
-
-​function serve(){
-
-
-if(!state.running || state.playerScoops.length===0) return;
-
-
-ensureAudio();
-
-
-var s = getLangStr();
-
-
-var scoopsMatch = sameMultiset(state.playerScoops, state.order.scoops);
-
-
-var toppingsMatch = sameMultiset(state.playerToppings, state.order.toppings);
-
-
-var containerMatch = state.selectedContainer === state.order.container;
-
-
-if(scoopsMatch && toppingsMatch && containerMatch){
-
-
-state.combo += 1;
-
-
-var mult = comboMultFor(state.combo);
-
-
-var quick = state.order.patienceLeft / state.order.patienceTotal > 0.5;
-
-
-var tip = quick ? round1(0.15 + 0.05mult) : 0;
-
-
-var gained = round1(state.order.pricemult) + tip;
-
-
-state.dayCoins = round1(state.dayCoins + gained);
-
-
-addLifetime(gained);
-
-
-state.score += 10 + state.order.scoops.length2 + state.order.toppings.length3 + state.combo*2;
-
-
-playSuccessSound(); spawnConfetti();
-
-
-showFeedback(s.good + (tip>0 ? ' +'+tip.toFixed(1)+COIN+' '+s.tipWord : ''), true);
-
-
-updateComboPill(); updateGoalText();
-
-
-if(state.dayCoins >= state.dayGoal){ dayComplete(); return; }
-
-
-resetBuild(); newOrder();
-
-
-} else {
-
-
-state.combo = 0;
-
-
-state.dayCoins = Math.max(0, round1(state.dayCoins - 0.3));
-
-
-state.score = Math.max(0, state.score - 5);
-
-
-el.buildArea.classList.add('shake');
-
-
-setTimeout(function(){ el.buildArea.classList.remove('shake'); }, 350);
-
-
-playFailSound();
-
-
-showFeedback(s.bad, false);
-
-
-updateComboPill(); updateGoalText();
-
-
-resetBuild(); newOrder();
-
-
-}
-
-
-buildPanels();
-
-
-}
-
-
-​function handlePatienceTimeout(){
-
-
-var s = getLangStr();
-
-
-state.combo = 0;
-
-
-state.dayCoins = Math.max(0, round1(state.dayCoins - 0.2));
-
-
-el.customerFace.textContent = '😡';
-
-
-showFeedback(s.patienceOut, false);
-
-
-updateComboPill(); updateGoalText();
-
-
-resetBuild(); newOrder();
-
-
-}
-
-
-​function updatePatienceVisual(){
-
-
-if(!state.order) return;
-
-
-var frac = state.order.patienceLeft / state.order.patienceTotal;
-
-
-el.patienceBar.style.width = Math.max(0,frac*100) + '%';
-
-
-if(frac <= 0.3){ el.patienceBar.style.background = 'var(--pink-dark)'; el.customerFace.textContent = '😟'; }
-
-
-else if(frac <= 0.6){ el.patienceBar.style.background = 'var(--amber)'; el.customerFace.textContent = '😐'; }
-
-
-else { el.patienceBar.style.background = 'var(--mint)'; el.customerFace.textContent = '🙂'; }
-
-
-}
-
-
-​/* ---------- day loop ---------- /
-
-
-function dayGoalFor(day){ return Math.round(8 + day3); }
-
-
-function dayTimeLimitFor(day){ return Math.min(60, 40 + day*2); }
-
-
-​function tick(){
-
-
-if (!state.running) return;
-
-
-state.dayTimeLeft -= 1;
-
-
-var pct = Math.max(0, state.dayTimeLeft/state.dayTimeLimit*100);
-
-
-el.timerbar.style.width = pct+'%';
-
-
-if(state.dayTimeLeft <= 15){ el.timerbar.style.background = 'var(--amber)'; }
-
-
-if(state.dayTimeLeft <= 6){ el.timerbar.style.background = 'var(--pink-dark)'; }
-
-
-​if(state.order){
-
-
-state.order.patienceLeft -= 1;
-
-
-updatePatienceVisual();
-
-
-if(state.order.patienceLeft <= 0){ handlePatienceTimeout(); }
-
-
-}
-
-
-​if(state.dayTimeLeft <= 0){
-
-
-if(state.dayCoins >= state.dayGoal){ dayComplete(); } else { dayFail(); }
-
-
-return;
-
-
-}
-
-
-state.timerId = setTimeout(tick, 1000);
-
-
-}
-
-
-​function startDay(dayNumber){
-
-
-state.day = dayNumber;
-
-
-state.season = computeSeason(state.day);
-
-
-applySeasonClass();
-
-
-state.dayGoal = dayGoalFor(state.day);
-
-
-state.dayTimeLimit = dayTimeLimitFor(state.day);
-
-
-state.dayTimeLeft = state.dayTimeLimit;
-
-
-state.dayCoins = 0;
-
-
-state.combo = 0;
-
-
-el.dayNum.textContent = state.day;
-
-
-el.timerbar.style.width = '100%'; el.timerbar.style.background = 'var(--mint)';
-
-
-updateComboPill(); updateGoalText();
-
-
-buildContainerRow(); buildPanels();
-
-
-resetBuild(); newOrder();
-
-
-el.intro.classList.add('hidden'); el.daySummary.classList.add('hidden'); el.game.classList.remove('hidden');
-
-
-state.running = true;
-
-
-clearTimeout(state.timerId);
-
-
-state.timerId = setTimeout(tick, 1000);
-
-
-}
-
-
-​function startGame(){
-
-
-ensureAudio();
-
-
-state.score = 0;
-
-
-state.lifetime = getLifetime();
-
-
-startDay(1);
-
-
-}
-
-
-​function showDaySummary(success){
-
-
-state.running = false; clearTimeout(state.timerId);
-
-
-var s = getLangStr();
-
-
-if(success){
-
-
-var leftover = state.dayTimeLeft;
-
-
-var bonus = round1(leftover*0.08);
-
-
-state.dayCoins = round1(state.dayCoins + bonus);
-
-
-addLifetime(bonus);
-
-
-state.score += leftover;
-
-
-if(state.day >= state.bestDay){ state.bestDay = state.day + 1; setBestDay(state.bestDay); }
-
-
-el.summaryEmoji.textContent = '🏆';
-
-
-el.summaryTitle.textContent = s.daySuccessTitle;
-
-
-el.summarySub.textContent = s.daySuccessSub;
-
-
-el.summaryPrimaryBtn.textContent = s.nextDayBtn;
-
-
-state.pendingAction = 'next';
-
-
-} else {
-
-
-el.summaryEmoji.textContent = '😮';
-
-
-el.summaryTitle.textContent = s.dayFailTitle;
-
-
-el.summarySub.textContent = s.dayFailSub;
-
-
-el.summaryPrimaryBtn.textContent = s.retryDayBtn;
-
-
-state.pendingAction = 'retry';
-
-
-}
-
-
-el.summaryCoins.textContent = state.dayCoins.toFixed(1);
-
-
-el.summaryLifetime.textContent = state.lifetime.toFixed(1);
-
-
-el.game.classList.add('hidden'); el.daySummary.classList.remove('hidden');
-
-
-}
-
-
-function dayComplete(){ showDaySummary(true); }
-
-
-function dayFail(){ showDaySummary(false); }
-
-
-​addTouchAction(el.startBtn, startGame);
-
-
-addTouchAction(el.resetBtn, resetBuild);
-
-
-addTouchAction(el.serveBtn, serve);
-
-
-addTouchAction(el.muteBtn, function(){
-
-
-state.muted = !state.muted; setMutedStore(state.muted);
-
-
-el.muteBtn.textContent = state.muted ? '🔇' : '🔊';
-
-
-el.muteBtn.setAttribute('aria-label', state.muted ? getLangStr().soundOff : getLangStr().soundOn);
-
-
-if(!state.muted) ensureAudio();
-
-
-});
-
-
-addTouchAction(el.summaryPrimaryBtn, function(){
-
-
-if(state.pendingAction === 'next'){ startDay(state.day+1); } else { startDay(state.day); }
-
-
-});
-
-
-addTouchAction(el.summaryMenuBtn, function(){
-
-
-el.daySummary.classList.add('hidden'); el.intro.classList.remove('hidden');
-
-
-showBestOnIntro();
-
-
-});
-
-
-​/* ---------- init ---------- */
-
-
-state.lang = getSavedLang() || 'az';
-
-
-state.lifetime = getLifetime();
-
-
-state.bestDay = getBestDay();
-
-
-state.muted = getMuted();
-
-
-el.muteBtn.textContent = state.muted ? '🔇' : '🔊';
-
-
-applyStaticTexts();
-
-
-renderAllLangRows();
-
-
-applySeasonClass();
-
-
-buildContainerRow();
-
-
-buildPanels();
-
-
-showBestOnIntro();
-
-
-​})();
-
-
+  "use strict";
+
+  var LANG_LIST = [
+    {code:'az', flag:'🇦🇿'}, {code:'en', flag:'🇬🇧'}, {code:'tr', flag:'🇹🇷'}, {code:'ru', flag:'🇷🇺'}
+  ];
+
+  var STR = {
+    az:{
+      title:'Dondurma Ustası',
+      subtitle:'Sifarişlərə uyğun dondurma hazırla, müştəriləri məmnun et və gündəlik hədəfə çat!',
+      rule1:'Yuxarıdakı bileti oxu.', rule2:'Konus/stəkan seç, dad və üzərlik əlavə et.',
+      rule3:'Müştəri səbr edərkən "Təhvil ver!"ə bas.', rule4:'Gündəlik hədəfə çat, növbəti günə keç!',
+      start:'Başla!', bestPrefix:'Ən yaxşı nəticən: Gün', scoreLbl:'Xal:', orderLbl:'Sifariş:',
+      emptyHint:'Hazırlamağa başla 👇', reset:'Sıfırla', serve:'Təhvil ver!',
+      good:'Əla! 🎉', bad:'Səhv sifariş 😕', patienceOut:'Müştəri getdi 😕',
+      dayLbl:'Gün', goalLbl:'Hədəf', comboLbl:'Seriya',
+      daySuccessTitle:'Gün tamamlandı! 🎉', daySuccessSub:'Qalan vaxta görə bonus qazandın!',
+      dayFailTitle:'Vaxt bitdi 😮', dayFailSub:'Hədəfə çatmadın, amma qazandığın qaldı.',
+      nextDayBtn:'Növbəti gün →', retryDayBtn:'Yenidən cəhd et', menuBtn:'Menyuya qayıt',
+      lifetimeLbl:'Ümumi qazanc', coinsLbl:'Bu gün qazanılan',
+      tipWord:'bəxşiş', soundOn:'Səs açıq', soundOff:'Səs bağlı',
+      containerCone:'Konus', containerCup:'Stəkan',
+      lockedTemplate:'{n}🪙-da açılır',
+      flavors:{vanil:'Vanil', sokolad:'Şokolad', ciyelek:'Çiyələk', nane:'Nanə', limon:'Limon', kokos:'Kokos', qara_uzum:'Qara Üzüm', isti_sokolad:'İsti Şokolad'},
+      toppings:{albali:'Albalı', sokoladus:'Şokolad', renkli:'Rəngli'}
+    },
+    en:{
+      title:'Ice Cream Master',
+      subtitle:'Build ice creams that match each order, keep customers happy, and hit your daily goal!',
+      rule1:'Read the ticket above.', rule2:'Pick a cone/cup, add flavors and toppings.',
+      rule3:'Press "Serve!" before the customer runs out of patience.', rule4:'Hit the daily goal to move to the next day!',
+      start:'Start!', bestPrefix:'Your best: Day', scoreLbl:'Score:', orderLbl:'Order:',
+      emptyHint:'Start building 👇', reset:'Reset', serve:'Serve!',
+      good:'Great! 🎉', bad:'Wrong order 😕', patienceOut:'Customer left 😕',
+      dayLbl:'Day', goalLbl:'Goal', comboLbl:'Combo',
+      daySuccessTitle:'Day complete! 🎉', daySuccessSub:'You earned a bonus for the time left!',
+      dayFailTitle:"Time's up 😮", dayFailSub:"You didn't reach the goal, but what you earned stays.",
+      nextDayBtn:'Next day →', retryDayBtn:'Try again', menuBtn:'Back to menu',
+      lifetimeLbl:'Lifetime coins', coinsLbl:'Earned today',
+      tipWord:'tip', soundOn:'Sound on', soundOff:'Sound off',
+      containerCone:'Cone', containerCup:'Cup',
+      lockedTemplate:'Unlocks at {n}🪙',
+      flavors:{vanil:'Vanilla', sokolad:'Chocolate', ciyelek:'Strawberry', nane:'Mint', limon:'Lemon', kokos:'Coconut', qara_uzum:'Blueberry', isti_sokolad:'Hot Cocoa'},
+      toppings:{albali:'Cherry', sokoladus:'Choc chips', renkli:'Sprinkles'}
+    },
+    tr:{
+      title:'Dondurma Ustası',
+      subtitle:'Siparişlere uygun dondurma hazırla, müşterileri mutlu et ve günlük hedefe ulaş!',
+      rule1:'Yukarıdaki fişi oku.', rule2:'Külah/kase seç, lezzet ve üzerlik ekle.',
+      rule3:'Müşteri sabrederken "Servis et!"e bas.', rule4:'Günlük hedefe ulaş, sonraki güne geç!',
+      start:'Başla!', bestPrefix:'En iyi sonucun: Gün', scoreLbl:'Puan:', orderLbl:'Sipariş:',
+      emptyHint:'Hazırlamaya başla 👇', reset:'Sıfırla', serve:'Servis et!',
+      good:'Harika! 🎉', bad:'Yanlış sipariş 😕', patienceOut:'Müşteri gitti 😕',
+      dayLbl:'Gün', goalLbl:'Hedef', comboLbl:'Seri',
+      daySuccessTitle:'Gün tamamlandı! 🎉', daySuccessSub:'Kalan süre için bonus kazandın!',
+      dayFailTitle:'Süre doldu 😮', dayFailSub:'Hedefe ulaşamadın ama kazandıkların kaldı.',
+      nextDayBtn:'Sonraki gün →', retryDayBtn:'Tekrar dene', menuBtn:'Menüye dön',
+      lifetimeLbl:'Toplam kazanç', coinsLbl:'Bugün kazanılan',
+      tipWord:'bahşiş', soundOn:'Ses açık', soundOff:'Ses kapalı',
+      containerCone:'Külah', containerCup:'Kase',
+      lockedTemplate:'{n}🪙 ile açılıyor',
+      flavors:{vanil:'Vanilya', sokolad:'Çikolata', ciyelek:'Çilek', nane:'Nane', limon:'Limon', kokos:'Hindistan Cevizi', qara_uzum:'Yaban Mersini', isti_sokolad:'Sıcak Çikolata'},
+      toppings:{albali:'Vişne', sokoladus:'Çikolata parçası', renkli:'Renkli şeker'}
+    },
+    ru:{
+      title:'Мастер мороженого',
+      subtitle:'Готовь мороженое точно по заказу, радуй покупателей и выполняй дневную цель!',
+      rule1:'Прочитай заказ вверху.', rule2:'Выбери рожок/стакан, добавь вкус и топпинги.',
+      rule3:'Нажми «Подать!», пока у покупателя есть терпение.', rule4:'Выполни дневную цель — и вперёд, на следующий день!',
+      start:'Начать!', bestPrefix:'Лучший результат: День', scoreLbl:'Очки:', orderLbl:'Заказ:',
+      emptyHint:'Начни собирать 👇', reset:'Сбросить', serve:'Подать!',
+      good:'Отлично! 🎉', bad:'Неверный заказ 😕', patienceOut:'Покупатель ушёл 😕',
+      dayLbl:'День', goalLbl:'Цель', comboLbl:'Серия',
+      daySuccessTitle:'День завершён! 🎉', daySuccessSub:'Бонус за оставшееся время!',
+      dayFailTitle:'Время вышло 😮', dayFailSub:'Цель не достигнута, но всё заработанное осталось.',
+      nextDayBtn:'Следующий день →', retryDayBtn:'Попробовать снова', menuBtn:'В меню',
+      lifetimeLbl:'Всего заработано', coinsLbl:'Заработано сегодня',
+      tipWord:'чаевые', soundOn:'Звук вкл', soundOff:'Звук выкл',
+      containerCone:'Рожок', containerCup:'Стакан',
+      lockedTemplate:'Откроется за {n}🪙',
+      flavors:{vanil:'Ваниль', sokolad:'Шоколад', ciyelek:'Клубника', nane:'Мята', limon:'Лимон', kokos:'Кокос', qara_uzum:'Черника', isti_sokolad:'Горячий шоколад'},
+      toppings:{albali:'Вишня', sokoladus:'Шок. крошка', renkli:'Посыпка'}
+    }
+  };
+
+  var FLAVOR_BASE = [
+    {id:'vanil', color:'#fff3d6'}, {id:'sokolad', color:'#8a5a3b'}, {id:'ciyelek', color:'#ff93ae'},
+    {id:'nane', color:'#8fe3c0'}, {id:'limon', color:'#fff176'}
+  ];
+  var FLAVOR_WINTER_SPECIAL = {id:'isti_sokolad', color:'#6b3a2a'};
+  var FLAVOR_UNLOCKS = [
+    {id:'kokos', color:'#f7f2e7', threshold:15},
+    {id:'qara_uzum', color:'#5b4b8a', threshold:40}
+  ];
+  var TOPPING_DEFS = [
+    {id:'albali', ic:'🍒'}, {id:'sokoladus', ic:'🍫'}, {id:'renkli', ic:'🌈'}
+  ];
+  var COIN = '🪙';
+
+  var state = {
+    lang:'az', lifetime:0, muted:false, bestDay:1,
+    day:1, season:'summer', dayGoal:10, dayTimeLimit:45, dayTimeLeft:45,
+    dayCoins:0, score:0, combo:0,
+    selectedContainer:'cone',
+    playerScoops:[], playerToppings:[],
+    order:null, running:false, timerId:null, pendingAction:'next'
+  };
+
+  function getLangStr(){ return STR[state.lang] || STR.az; }
+  function round1(x){ return Math.round(x*10)/10; }
+
+  var el = {
+    intro: document.getElementById('intro'), game: document.getElementById('game'), daySummary: document.getElementById('daySummary'),
+    startBtn: document.getElementById('startBtn'),
+    dayNum: document.getElementById('dayNum'), dayLblText: document.getElementById('dayLblText'),
+    timerbar: document.getElementById('timerbar'), muteBtn: document.getElementById('muteBtn'),
+    goalText: document.getElementById('goalText'), comboPill: document.getElementById('comboPill'), scoreText: document.getElementById('scoreText'),
+    customerFace: document.getElementById('customerFace'), glassArea: document.getElementById('glassArea'),
+    patienceBar: document.getElementById('patienceBar'),
+    orderMini: document.getElementById('orderMini'), orderPrice: document.getElementById('orderPrice'), orderLbl: document.getElementById('orderLbl'),
+    coneStack: document.getElementById('coneStack'), coneShape: document.getElementById('coneShape'), cupShape: document.getElementById('cupShape'),
+    emptyHint: document.getElementById('emptyHint'), buildArea: document.getElementById('buildArea'),
+    containerRow: document.getElementById('containerRow'), flavorRow: document.getElementById('flavorRow'), toppingRow: document.getElementById('toppingRow'),
+    resetBtn: document.getElementById('resetBtn'), serveBtn: document.getElementById('serveBtn'),
+    feedback: document.getElementById('feedback'),
+    bestNote: document.getElementById('bestNote'), lockProgress: document.getElementById('lockProgress'),
+    titleText: document.getElementById('titleText'), subtitleText: document.getElementById('subtitleText'),
+    ruleText1: document.getElementById('ruleText1'), ruleText2: document.getElementById('ruleText2'),
+    ruleText3: document.getElementById('ruleText3'), ruleText4: document.getElementById('ruleText4'),
+    summaryEmoji: document.getElementById('summaryEmoji'), summaryTitle: document.getElementById('summaryTitle'), summarySub: document.getElementById('summarySub'),
+    summaryCoins: document.getElementById('summaryCoins'), summaryCoinsLbl: document.getElementById('summaryCoinsLbl'),
+    summaryLifetime: document.getElementById('summaryLifetime'), summaryLifetimeLbl: document.getElementById('summaryLifetimeLbl'),
+    summaryPrimaryBtn: document.getElementById('summaryPrimaryBtn'), summaryMenuBtn: document.getElementById('summaryMenuBtn'),
+    langRowIntro: document.getElementById('langRowIntro'), langRowGame: document.getElementById('langRowGame')
+  };
+
+  /* ---------- persistence ---------- */
+  function safeGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function safeSet(k,v){ try{ localStorage.setItem(k, v); }catch(e){} }
+
+  function getLifetime(){ var v = safeGet('dondurma_lifetime'); return v ? parseFloat(v) : 0; }
+  function addLifetime(amount){ var v = round1(getLifetime() + amount); safeSet('dondurma_lifetime', String(v)); state.lifetime = v; return v; }
+  function getBestDay(){ var v = safeGet('dondurma_bestday'); return v ? parseInt(v,10) : 1; }
+  function setBestDay(v){ safeSet('dondurma_bestday', String(v)); }
+  function getSavedLang(){ var v = safeGet('dondurma_lang'); return v && STR[v] ? v : null; }
+  function saveLang(v){ safeSet('dondurma_lang', v); }
+  function getMuted(){ return safeGet('dondurma_muted') === '1'; }
+  function setMutedStore(v){ safeSet('dondurma_muted', v ? '1' : '0'); }
+
+  /* ---------- audio ---------- */
+  var audioCtx = null;
+  function ensureAudio(){
+    if(audioCtx || state.muted) return;
+    try{ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }catch(e){}
+  }
+  function beep(freq, dur, type){
+    if(state.muted || !audioCtx) return;
+    try{
+      var o = audioCtx.createOscillator(); var g = audioCtx.createGain();
+      o.type = type || 'sine'; o.frequency.value = freq;
+      o.connect(g); g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(0.16, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+      o.start(); o.stop(audioCtx.currentTime + dur);
+    }catch(e){}
+  }
+  function playSuccessSound(){ beep(523,0.12); setTimeout(function(){ beep(784,0.15); }, 100); }
+  function playFailSound(){ beep(170,0.28,'sawtooth'); }
+
+  function spawnConfetti(){
+    var pieces = ['🎉','⭐','🍬','✨'];
+    for(var i=0;i<7;i++){
+      var s = document.createElement('span');
+      s.className = 'confetti-piece';
+      s.textContent = pieces[Math.floor(Math.random()*pieces.length)];
+      s.style.left = (10 + Math.random()*80) + '%';
+      s.style.top = (10 + Math.random()*20) + '%';
+      el.buildArea.appendChild(s);
+      (function(node){ setTimeout(function(){ if(node.parentNode) node.parentNode.removeChild(node); }, 950); })(s);
+    }
+  }
+
+  /* ---------- language ---------- */
+  function renderLangRow(container){
+    if(!container) return;
+    container.innerHTML = '';
+    LANG_LIST.forEach(function(l){
+      var btn = document.createElement('button');
+      btn.className = 'lang-btn' + (l.code === state.lang ? ' active' : '');
+      btn.textContent = l.flag;
+      btn.setAttribute('aria-label', l.code);
+      btn.addEventListener('click', function(){ applyLanguage(l.code); });
+      container.appendChild(btn);
+    });
+  }
+  function renderAllLangRows(){ renderLangRow(el.langRowIntro); renderLangRow(el.langRowGame); }
+
+  function applyStaticTexts(){
+    var s = getLangStr();
+    document.documentElement.lang = state.lang;
+    el.titleText.textContent = s.title; el.subtitleText.textContent = s.subtitle;
+    el.ruleText1.textContent = s.rule1; el.ruleText2.textContent = s.rule2;
+    el.ruleText3.textContent = s.rule3; el.ruleText4.textContent = s.rule4;
+    el.startBtn.textContent = s.start;
+    el.dayLblText.textContent = s.dayLbl;
+    el.orderLbl.textContent = s.orderLbl;
+    el.emptyHint.textContent = s.emptyHint;
+    el.resetBtn.textContent = s.reset; el.serveBtn.textContent = s.serve;
+    el.muteBtn.setAttribute('aria-label', state.muted ? s.soundOff : s.soundOn);
+    el.summaryMenuBtn.textContent = s.menuBtn;
+    el.summaryCoinsLbl.textContent = COIN + ' ' + s.coinsLbl;
+    el.summaryLifetimeLbl.textContent = s.lifetimeLbl;
+  }
+
+  function applyLanguage(code){
+    if(!STR[code]) return;
+    state.lang = code; saveLang(code);
+    applyStaticTexts(); renderAllLangRows(); buildPanels(); buildContainerRow();
+    showBestOnIntro();
+    if(state.order){ renderOrder(); updateGoalText(); }
+  }
+
+  function showBestOnIntro(){
+    var s = getLangStr();
+    el.bestNote.textContent = s.bestPrefix + ' ' + state.bestDay;
+    var lockedList = FLAVOR_UNLOCKS.filter(function(f){ return state.lifetime < f.threshold; });
+    if(lockedList.length){
+      var next = lockedList[0];
+      var name = s.flavors[next.id];
+      el.lockProgress.innerHTML = '<b>' + s.lifetimeLbl + ': ' + state.lifetime.toFixed(1) + ' ' + COIN + '</b><br>' +
+        s.lockedTemplate.replace('{n}', next.threshold) + ' — ' + name;
+    } else {
+      el.lockProgress.innerHTML = '<b>' + s.lifetimeLbl + ': ' + state.lifetime.toFixed(1) + ' ' + COIN + '</b>';
+    }
+  }
+
+  /* ---------- season & unlocks ---------- */
+  function computeSeason(day){ return ((day - 1) % 4 < 2) ? 'summer' : 'winter'; }
+  function applySeasonClass(){ document.body.classList.remove('winter','summer'); document.body.classList.add(state.season); }
+  function getUnlockedExtras(){ return FLAVOR_UNLOCKS.filter(function(f){ return state.lifetime >= f.threshold; }); }
+  function getActiveFlavorPool(){
+    var base = FLAVOR_BASE.slice();
+    if(state.season === 'winter'){ base = base.filter(function(f){ return f.id !== 'limon'; }).concat([FLAVOR_WINTER_SPECIAL]); }
+    return base.concat(getUnlockedExtras());
+  }
+
+  function buildContainerRow(){
+    var s = getLangStr();
+    el.containerRow.innerHTML = '';
+    [{id:'cone', ic:'🍦', label:s.containerCone}, {id:'cup', ic:'🥤', label:s.containerCup}].forEach(function(c){
+      var btn = document.createElement('button');
+      btn.className = 'container-btn' + (state.selectedContainer === c.id ? ' selected' : '');
+      btn.innerHTML = '<span class="ic">'+c.ic+'</span><span>'+c.label+'</span>';
+      btn.addEventListener('click', function(){
+        state.selectedContainer = c.id;
+        buildContainerRow();
+        renderBuild();
+      });
+      el.containerRow.appendChild(btn);
+    });
+  }
+
+  function buildPanels(){
+    var s = getLangStr();
+    el.flavorRow.innerHTML = '';
+    var activeIds = getActiveFlavorPool().map(function(f){ return f.id; });
+    var allDefs = FLAVOR_BASE.concat(state.season==='winter'?[FLAVOR_WINTER_SPECIAL]:[]).concat(FLAVOR_UNLOCKS);
+    var seen = {};
+    getActiveFlavorPool().concat(FLAVOR_UNLOCKS).forEach(function(f){
+      if(seen[f.id]) return; seen[f.id] = true;
+      var name = s.flavors[f.id];
+      var unlocked = activeIds.indexOf(f.id) !== -1;
+      var btn = document.createElement('button');
+      btn.className = 'flavor-btn' + (unlocked ? '' : ' locked');
+      if(unlocked){
+        btn.innerHTML = '<span class="flavor-swatch" style="background:'+f.color+'"></span><span>'+name+'</span>';
+        btn.addEventListener('click', function(){ addScoop(f.id); });
+      } else {
+        var thr = FLAVOR_UNLOCKS.filter(function(u){return u.id===f.id;})[0].threshold;
+        btn.innerHTML = '<span class="flavor-swatch" style="background:'+f.color+'"></span><span>🔒 '+name+'</span><span class="lock-badge">'+thr+COIN+'</span>';
+        btn.disabled = true;
+      }
+      btn.setAttribute('aria-label', name);
+      el.flavorRow.appendChild(btn);
+    });
+    el.toppingRow.innerHTML = '';
+    TOPPING_DEFS.forEach(function(t){
+      var name = s.toppings[t.id];
+      var btn = document.createElement('button');
+      btn.className = 'topping-btn'; btn.setAttribute('aria-label', name);
+      btn.innerHTML = '<span class="ic">'+t.ic+'</span><span>'+name+'</span>';
+      btn.addEventListener('click', function(){ addTopping(t.id); });
+      el.toppingRow.appendChild(btn);
+    });
+  }
+
+  function flavorDef(id){
+    var all = FLAVOR_BASE.concat([FLAVOR_WINTER_SPECIAL]).concat(FLAVOR_UNLOCKS);
+    for(var i=0;i<all.length;i++){ if(all[i].id===id) return all[i]; }
+    return null;
+  }
+  function toppingDef(id){ for(var i=0;i<TOPPING_DEFS.length;i++){ if(TOPPING_DEFS[i].id===id) return TOPPING_DEFS[i]; } return null; }
+
+  /* ---------- build interactions ---------- */
+  function addScoop(id){
+    if(!state.running) return;
+    ensureAudio();
+    if(state.playerScoops.length >= 4) return flashPanelLimit();
+    state.playerScoops.push(id);
+    renderBuild();
+  }
+  function addTopping(id){
+    if(!state.running) return;
+    ensureAudio();
+    if(state.playerToppings.length >= 3) return flashPanelLimit();
+    state.playerToppings.push(id);
+    renderBuild();
+  }
+  function flashPanelLimit(){
+    el.buildArea.classList.add('shake');
+    setTimeout(function(){ el.buildArea.classList.remove('shake'); }, 350);
+  }
+
+  function renderBuild(){
+    el.coneShape.classList.toggle('hidden', state.selectedContainer !== 'cone');
+    el.cupShape.classList.toggle('hidden', state.selectedContainer !== 'cup');
+    el.coneStack.innerHTML = '';
+    state.playerScoops.forEach(function(id){
+      var f = flavorDef(id);
+      var d = document.createElement('div'); d.className = 'scoop'; d.style.background = f.color;
+      el.coneStack.appendChild(d);
+    });
+    if(state.playerToppings.length){
+      var wrap = document.createElement('div'); wrap.style.display='flex'; wrap.style.gap='2px';
+      state.playerToppings.forEach(function(id){
+        var t = toppingDef(id);
+        var s = document.createElement('span'); s.style.fontSize='18px'; s.textContent = t.ic;
+        wrap.appendChild(s);
+      });
+      el.coneStack.appendChild(wrap);
+    }
+    el.emptyHint.style.display = state.playerScoops.length ? 'none' : 'block';
+    el.serveBtn.disabled = state.playerScoops.length === 0;
+  }
+  function resetBuild(){ state.playerScoops = []; state.playerToppings = []; renderBuild(); }
+
+  function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+  function pick(arr){ return arr[randInt(0,arr.length-1)]; }
+
+  /* ---------- queue silhouettes ---------- */
+  function renderQueue(){
+    var qCount = Math.min(2, Math.floor((state.day-1)/2));
+    var existing = el.glassArea.querySelectorAll('.queue-face');
+    for(var i=0;i<existing.length;i++){ existing[i].parentNode.removeChild(existing[i]); }
+    for(var j=0;j<qCount;j++){
+      var s = document.createElement('span'); s.className = 'queue-face'; s.textContent = '🧍';
+      if(j===0) el.glassArea.insertBefore(s, el.customerFace); else el.glassArea.appendChild(s);
+    }
+  }
+
+  /* ---------- orders ---------- */
+  function newOrder(){
+    var difficulty = Math.min(3, Math.floor((state.day-1)/2));
+    var pool = getActiveFlavorPool();
+    var scoopCount = Math.min(4, randInt(1, 2+difficulty));
+    var toppingCount = randInt(0, Math.min(2, 1+difficulty));
+    var scoops = []; for(var i=0;i<scoopCount;i++){ scoops.push(pick(pool).id); }
+    var toppingPool = TOPPING_DEFS.slice(); var toppings = [];
+    for(var j=0;j<toppingCount;j++){
+      if(!toppingPool.length) break;
+      var idx = randInt(0, toppingPool.length-1);
+      toppings.push(toppingPool[idx].id); toppingPool.splice(idx,1);
+    }
+    var container = Math.random() < 0.3 ? 'cup' : 'cone';
+    var price = round1(scoopCount*0.8 + toppings.length*0.4 + (container==='cup'?0.1:0));
+    var patienceTotal = Math.max(7, randInt(12 - state.day*0.5, 16 - state.day*0.5));
+    state.order = { scoops:scoops, toppings:toppings, container:container, price:price, patienceTotal:patienceTotal, patienceLeft:patienceTotal };
+    renderOrder(); renderQueue();
+    el.patienceBar.style.width = '100%'; el.patienceBar.style.background = 'var(--mint)';
+    el.customerFace.textContent = '🙂';
+  }
+
+  function renderOrder(){
+    el.orderMini.innerHTML = '';
+    state.order.scoops.forEach(function(id){
+      var f = flavorDef(id);
+      var d = document.createElement('div'); d.className='mini-scoop'; d.style.background = f.color;
+      el.orderMini.appendChild(d);
+    });
+    state.order.toppings.forEach(function(id){
+      var t = toppingDef(id);
+      var s = document.createElement('span'); s.className='mini-top'; s.textContent = t.ic;
+      el.orderMini.appendChild(s);
+    });
+    var contIcon = document.createElement('span');
+    contIcon.className = 'mini-container';
+    contIcon.textContent = state.order.container === 'cup' ? '🥤' : '🍦';
+    el.orderMini.appendChild(contIcon);
+    el.orderPrice.textContent = state.order.price.toFixed(1) + ' ' + COIN;
+  }
+
+  function sameMultiset(a,b){
+    if(a.length !== b.length) return false;
+    var ac = a.slice().sort(); var bc = b.slice().sort();
+    for(var i=0;i<ac.length;i++){ if(ac[i]!==bc[i]) return false; }
+    return true;
+  }
+
+  function showFeedback(text, good){
+    el.feedback.textContent = text;
+    el.feedback.className = 'feedback show ' + (good?'good':'bad');
+    clearTimeout(el.feedback._t);
+    el.feedback._t = setTimeout(function(){ el.feedback.className = 'feedback'; }, 950);
+  }
+
+  function comboMultFor(n){ if(n>=10) return 2.0; if(n>=6) return 1.6; if(n>=3) return 1.3; return 1.0; }
+
+  function updateComboPill(){
+    var s = getLangStr();
+    if(state.combo >= 2){
+      el.comboPill.textContent = s.comboLbl + ' x' + state.combo;
+      el.comboPill.classList.add('show');
+    } else {
+      el.comboPill.classList.remove('show');
+    }
+  }
+
+  function updateGoalText(){
+    el.goalText.textContent = state.dayCoins.toFixed(1) + '/' + state.dayGoal + ' ' + COIN;
+    el.scoreText.textContent = getLangStr().scoreLbl + ' ' + state.score;
+  }
+
+  function serve(){
+    if(!state.running || state.playerScoops.length===0) return;
+    ensureAudio();
+    var s = getLangStr();
+    var scoopsMatch = sameMultiset(state.playerScoops, state.order.scoops);
+    var toppingsMatch = sameMultiset(state.playerToppings, state.order.toppings);
+    var containerMatch = state.selectedContainer === state.order.container;
+    if(scoopsMatch && toppingsMatch && containerMatch){
+      state.combo += 1;
+      var mult = comboMultFor(state.combo);
+      var quick = state.order.patienceLeft / state.order.patienceTotal > 0.5;
+      var tip = quick ? round1(0.15 + 0.05*mult) : 0;
+      var gained = round1(state.order.price*mult) + tip;
+      state.dayCoins = round1(state.dayCoins + gained);
+      addLifetime(gained);
+      state.score += 10 + state.order.scoops.length*2 + state.order.toppings.length*3 + state.combo*2;
+      playSuccessSound(); spawnConfetti();
+      showFeedback(s.good + (tip>0 ? ' +'+tip.toFixed(1)+COIN+' '+s.tipWord : ''), true);
+      updateComboPill(); updateGoalText();
+      if(state.dayCoins >= state.dayGoal){ dayComplete(); return; }
+      resetBuild(); newOrder();
+    } else {
+      state.combo = 0;
+      state.dayCoins = Math.max(0, round1(state.dayCoins - 0.3));
+      state.score = Math.max(0, state.score - 5);
+      el.buildArea.classList.add('shake');
+      setTimeout(function(){ el.buildArea.classList.remove('shake'); }, 350);
+      playFailSound();
+      showFeedback(s.bad, false);
+      updateComboPill(); updateGoalText();
+      resetBuild(); newOrder();
+    }
+    buildPanels();
+  }
+
+  function handlePatienceTimeout(){
+    var s = getLangStr();
+    state.combo = 0;
+    state.dayCoins = Math.max(0, round1(state.dayCoins - 0.2));
+    el.customerFace.textContent = '😡';
+    showFeedback(s.patienceOut, false);
+    updateComboPill(); updateGoalText();
+    resetBuild(); newOrder();
+  }
+
+  function updatePatienceVisual(){
+    if(!state.order) return;
+    var frac = state.order.patienceLeft / state.order.patienceTotal;
+    el.patienceBar.style.width = Math.max(0,frac*100) + '%';
+    if(frac <= 0.3){ el.patienceBar.style.background = 'var(--pink-dark)'; el.customerFace.textContent = '😟'; }
+    else if(frac <= 0.6){ el.patienceBar.style.background = 'var(--amber)'; el.customerFace.textContent = '😐'; }
+    else { el.patienceBar.style.background = 'var(--mint)'; el.customerFace.textContent = '🙂'; }
+  }
+
+  /* ---------- day loop ---------- */
+  function dayGoalFor(day){ return Math.round(8 + day*3); }
+  function dayTimeLimitFor(day){ return Math.min(60, 40 + day*2); }
+
+  function tick(){
+    state.dayTimeLeft -= 1;
+    var pct = Math.max(0, state.dayTimeLeft/state.dayTimeLimit*100);
+    el.timerbar.style.width = pct+'%';
+    if(state.dayTimeLeft <= 15){ el.timerbar.style.background = 'var(--amber)'; }
+    if(state.dayTimeLeft <= 6){ el.timerbar.style.background = 'var(--pink-dark)'; }
+
+    if(state.order){
+      state.order.patienceLeft -= 1;
+      updatePatienceVisual();
+      if(state.order.patienceLeft <= 0){ handlePatienceTimeout(); }
+    }
+
+    if(state.dayTimeLeft <= 0){
+      if(state.dayCoins >= state.dayGoal){ dayComplete(); } else { dayFail(); }
+      return;
+    }
+    state.timerId = setTimeout(tick, 1000);
+  }
+
+  function startDay(dayNumber){
+    state.day = dayNumber;
+    state.season = computeSeason(state.day);
+    applySeasonClass();
+    state.dayGoal = dayGoalFor(state.day);
+    state.dayTimeLimit = dayTimeLimitFor(state.day);
+    state.dayTimeLeft = state.dayTimeLimit;
+    state.dayCoins = 0;
+    state.combo = 0;
+    el.dayNum.textContent = state.day;
+    el.timerbar.style.width = '100%'; el.timerbar.style.background = 'var(--mint)';
+    updateComboPill(); updateGoalText();
+    buildContainerRow(); buildPanels();
+    resetBuild(); newOrder();
+    el.intro.classList.add('hidden'); el.daySummary.classList.add('hidden'); el.game.classList.remove('hidden');
+    state.running = true;
+    clearTimeout(state.timerId);
+    state.timerId = setTimeout(tick, 1000);
+  }
+
+  function startGame(){
+    ensureAudio();
+    state.score = 0;
+    state.lifetime = getLifetime();
+    startDay(1);
+  }
+
+  function showDaySummary(success){
+    state.running = false; clearTimeout(state.timerId);
+    var s = getLangStr();
+    if(success){
+      var leftover = state.dayTimeLeft;
+      var bonus = round1(leftover*0.08);
+      state.dayCoins = round1(state.dayCoins + bonus);
+      addLifetime(bonus);
+      state.score += leftover;
+      if(state.day >= state.bestDay){ state.bestDay = state.day + 1; setBestDay(state.bestDay); }
+      el.summaryEmoji.textContent = '🏆';
+      el.summaryTitle.textContent = s.daySuccessTitle;
+      el.summarySub.textContent = s.daySuccessSub;
+      el.summaryPrimaryBtn.textContent = s.nextDayBtn;
+      state.pendingAction = 'next';
+    } else {
+      el.summaryEmoji.textContent = '😮';
+      el.summaryTitle.textContent = s.dayFailTitle;
+      el.summarySub.textContent = s.dayFailSub;
+      el.summaryPrimaryBtn.textContent = s.retryDayBtn;
+      state.pendingAction = 'retry';
+    }
+    el.summaryCoins.textContent = state.dayCoins.toFixed(1);
+    el.summaryLifetime.textContent = state.lifetime.toFixed(1);
+    el.game.classList.add('hidden'); el.daySummary.classList.remove('hidden');
+  }
+  function dayComplete(){ showDaySummary(true); }
+  function dayFail(){ showDaySummary(false); }
+
+  el.startBtn.addEventListener('click', startGame);
+  el.resetBtn.addEventListener('click', resetBuild);
+  el.serveBtn.addEventListener('click', serve);
+  el.muteBtn.addEventListener('click', function(){
+    state.muted = !state.muted; setMutedStore(state.muted);
+    el.muteBtn.textContent = state.muted ? '🔇' : '🔊';
+    el.muteBtn.setAttribute('aria-label', state.muted ? getLangStr().soundOff : getLangStr().soundOn);
+    if(!state.muted) ensureAudio();
+  });
+  el.summaryPrimaryBtn.addEventListener('click', function(){
+    if(state.pendingAction === 'next'){ startDay(state.day+1); } else { startDay(state.day); }
+  });
+  el.summaryMenuBtn.addEventListener('click', function(){
+    el.daySummary.classList.add('hidden'); el.intro.classList.remove('hidden');
+    showBestOnIntro();
+  });
+
+  /* ---------- init ---------- */
+  state.lang = getSavedLang() || 'az';
+  state.lifetime = getLifetime();
+  state.bestDay = getBestDay();
+  state.muted = getMuted();
+  el.muteBtn.textContent = state.muted ? '🔇' : '🔊';
+  applyStaticTexts();
+  renderAllLangRows();
+  applySeasonClass();
+  buildContainerRow();
+  buildPanels();
+  showBestOnIntro();
+
+})();
 </script>
-
-
 </body>
-
-
 </html>
-
-
